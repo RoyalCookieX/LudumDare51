@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c882a0b18f722a4d8a3be646ce1f88d, type: 3}
   m_Name: DefaultLauncher
   m_EditorClassIdentifier: 
-  _cooldown: 0.5
+  _ammo: 7
+  _shotMultiplier: 3
+  _shotDelay: 0.1
+  _accuracy: 0.8
+  _cooldown: 0.3
