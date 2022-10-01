@@ -5,6 +5,14 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private PlayerMovement _movement;
+    [SerializeField] private Rotator _rotator;
+
+    private Camera _mainCamera;
+
+    private void OnEnable()
+    {
+        _mainCamera = Camera.main;
+    }
 
     private void OnMovement(InputValue value)
     {
@@ -19,7 +27,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnAim(InputValue value)
     {
-        Vector2 aim = value.Get<Vector2>();
-        print($"aim: {aim}");
+        Vector2 cursorPosition = value.Get<Vector2>();
+        Vector3 worldPosition = _mainCamera.ScreenToWorldPoint(cursorPosition);
+        _rotator.SetFollowPosition(worldPosition);
     }
 }
