@@ -11,9 +11,6 @@ public class ProjectileLauncher : MonoBehaviour
     [SerializeField] private UnityEvent<int, int> _onReloaded;
     [SerializeField] private UnityEvent<float> _onCooldownChanged;
 
-    [Header("Prefab")]
-    [SerializeField] private GameObject _projectilePrefab;
-
     [Header("Components")]
     [SerializeField] private LauncherAsset _asset;
     [SerializeField] private Transform _target;
@@ -24,6 +21,7 @@ public class ProjectileLauncher : MonoBehaviour
 
     private int _currentAmmo = 0;
     private float _currentCooldown = 0.0f;
+    private LauncherAsset _defaultAsset;
     private Coroutine _launchRoutine = null;
     private Coroutine _cooldownRoutine = null;
 
@@ -48,6 +46,16 @@ public class ProjectileLauncher : MonoBehaviour
         _currentAmmo--;
         _onLaunched?.Invoke(_currentAmmo, _asset.Ammo);
         return true;
+    }
+
+    public void SetAsset(LauncherAsset asset)
+    {
+        LauncherAsset targetAsset = asset ? asset : _defaultAsset;
+        _asset = targetAsset;
+        int poolSize = _asset.Ammo * _asset.ShotMultiplier;
+        _pool = new ObjectPool(_asset.ProjectilePrefab, poolSize);
+        Reload();
+        SetCooldown(0.0f);
     }
 
     private void SetCooldown(float cooldown)
@@ -87,9 +95,7 @@ public class ProjectileLauncher : MonoBehaviour
 
     private void Start()
     {
-        int poolSize = _asset.Ammo * _asset.ShotMultiplier;
-        _pool = new ObjectPool(_projectilePrefab, poolSize);
-        Reload();
-        SetCooldown(0.0f);
+        _defaultAsset = _asset;
+        SetAsset(_defaultAsset);
     }
 }
