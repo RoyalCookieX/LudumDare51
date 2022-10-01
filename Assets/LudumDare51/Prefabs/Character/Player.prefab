@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 8832357396964865482}
   - component: {fileID: 125340785504873029}
   - component: {fileID: 5085278938325276362}
+  - component: {fileID: 4610639061483601605}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -219,6 +220,33 @@ MonoBehaviour:
   _max: 100
   _id: 1
   _invincible: 0
+--- !u!114 &4610639061483601605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729639126689785195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9876f0051b7d6748a5efdc61e7163f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onLauncherUpgrade:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6586995313514810487}
+        m_TargetAssemblyTypeName: ProjectileLauncher, Assembly-CSharp
+        m_MethodName: SetAsset
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7274324427446142995
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,14 +292,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568116bfe0543904ebb573eb85793a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onLaunched:
+    m_PersistentCalls:
+      m_Calls: []
+  _onReloaded:
+    m_PersistentCalls:
+      m_Calls: []
   _onCooldownChanged:
     m_PersistentCalls:
       m_Calls: []
-  _projectilePrefab: {fileID: 4715905929266727603, guid: d8de2b2efb781b749a69d6f7da9ff5b4, type: 3}
-  _asset: {fileID: 11400000, guid: 95e7269a633bd8f4aa3ade07b8260b8b, type: 2}
+  _onAssetChanged:
+    m_PersistentCalls:
+      m_Calls: []
   _target: {fileID: 2137729370639285001}
-  _poolSize: 10
+  _active: 1
   _healthID: 1
+  _asset: {fileID: 11400000, guid: 95e7269a633bd8f4aa3ade07b8260b8b, type: 2}
 --- !u!1 &7443842784272017754
 GameObject:
   m_ObjectHideFlags: 0
