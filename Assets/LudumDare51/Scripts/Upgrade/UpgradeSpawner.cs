@@ -35,6 +35,11 @@ public class UpgradeSpawner : MonoBehaviour
         return _upgrade;
     }
 
+    private void Start()
+    {
+        Spawn();
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;

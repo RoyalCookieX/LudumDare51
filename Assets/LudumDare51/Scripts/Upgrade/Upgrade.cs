@@ -14,6 +14,9 @@ public class Upgrade : MonoBehaviour
     [Header("Events")]
     [SerializeField] private UnityEvent _onConsumed;
 
+    [Header("Components")]
+    [SerializeField] private SpriteRenderer _renderer;
+
     [Header("Properties")]
     [SerializeField] UpgradeType _type;
     [SerializeField] private LauncherAsset _launcherAsset;
@@ -27,5 +30,6 @@ public class Upgrade : MonoBehaviour
     {
         _type = UpgradeType.Launcher;
         _launcherAsset = asset;
+        _renderer.sprite = asset.HeldSprite ? asset.ItemSprite : _renderer.sprite;
     }
 }
