@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6963427319072030223}
   - component: {fileID: 4237161433477413554}
+  - component: {fileID: 4785335118649931820}
   - component: {fileID: 6080020505521571744}
   - component: {fileID: 8123541783691972794}
   - component: {fileID: 8832357396964865482}
@@ -51,6 +52,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 1}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!50 &4785335118649931820
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729639126689785195}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.01
+  m_LinearDrag: 10
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!114 &6080020505521571744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8471b9ffb6a10dc47b06cff3e29bcff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 4785335118649931820}
+  _acceleration: 1
+  _deceleration: 1
+  _maxSpeed: 10
 --- !u!1 &7769713751932710071
 GameObject:
   m_ObjectHideFlags: 0
