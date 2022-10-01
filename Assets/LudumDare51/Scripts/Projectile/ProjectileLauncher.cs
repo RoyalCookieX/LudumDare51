@@ -11,6 +11,7 @@ public class ProjectileLauncher : MonoBehaviour
 
     [Header("Properties")]
     [SerializeField, Min(5)] private int _poolSize = 10;
+    [SerializeField] private int _healthID = 0;
 
     private void Start()
     {
@@ -19,6 +20,9 @@ public class ProjectileLauncher : MonoBehaviour
 
     public void Launch()
     {
-        _pool.Instantiate(_target.position, _target.rotation);
+        GameObject instance = _pool.Instantiate(_target.position, _target.rotation);
+        if (!instance.TryGetComponent(out IHurtbox hurtbox))
+            return;
+        hurtbox.HealthID = _healthID;
     }
 }
