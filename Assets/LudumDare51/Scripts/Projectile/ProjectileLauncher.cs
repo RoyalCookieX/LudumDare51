@@ -4,20 +4,23 @@ using UnityEngine.Events;
 
 public class ProjectileLauncher : MonoBehaviour
 {
+    public bool Active { get => _active; set => _active = value; }
     private float Percentage => _asset ? (_currentCooldown / _asset.Cooldown) : 0.0f;
 
     [Header("Events")]
     [SerializeField] private UnityEvent<int, int> _onLaunched;
     [SerializeField] private UnityEvent<int, int> _onReloaded;
     [SerializeField] private UnityEvent<float> _onCooldownChanged;
+    [SerializeField] private UnityEvent<LauncherAsset> _onAssetChanged;
 
     [Header("Components")]
-    [SerializeField] private LauncherAsset _asset;
     [SerializeField] private Transform _target;
     [SerializeField] private ObjectPool _pool;
 
     [Header("Properties")]
+    [SerializeField] private bool _active = true;
     [SerializeField] private int _healthID = 0;
+    [SerializeField] private LauncherAsset _asset;
 
     private int _currentAmmo = 0;
     private float _currentCooldown = 0.0f;
@@ -33,7 +36,7 @@ public class ProjectileLauncher : MonoBehaviour
 
     public bool Launch()
     {
-        if (_currentCooldown > 0.0f || _currentAmmo < 1)
+        if (!_active || _currentCooldown > 0.0f || _currentAmmo < 1)
             return false;
 
         if (_cooldownRoutine != null)
@@ -56,6 +59,7 @@ public class ProjectileLauncher : MonoBehaviour
         _pool = new ObjectPool(_asset.ProjectilePrefab, poolSize);
         Reload();
         SetCooldown(0.0f);
+        _onAssetChanged?.Invoke(targetAsset);
     }
 
     private void SetCooldown(float cooldown)
