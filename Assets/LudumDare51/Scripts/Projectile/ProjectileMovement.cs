@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ProjectileMovement : MonoBehaviour
@@ -7,11 +8,24 @@ public class ProjectileMovement : MonoBehaviour
 
     [Header("Properties")]
     [SerializeField, Min(1.0f)] private float _maxSpeed = 1.0f;
+    [SerializeField, Min(0.1f)] private float _duration = 1.0f;
+
+    private Coroutine _current;
+
+    private IEnumerator DurationRoutine()
+    {
+        yield return new WaitForSeconds(_duration);
+        gameObject.SetActive(false);
+    }
 
     private void OnEnable()
     {
         _rigidbody.velocity = Vector2.zero;
         _rigidbody.AddRelativeForce(Vector2.up * _maxSpeed, ForceMode2D.Impulse);
+        
+        if (_current != null)
+            StopCoroutine(_current);
+        _current = StartCoroutine(DurationRoutine());
     }
 
     private void OnDisable()
