@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 8123541783691972794}
   - component: {fileID: 8832357396964865482}
   - component: {fileID: 125340785504873029}
+  - component: {fileID: 5085278938325276362}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -78,7 +79,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 1}
@@ -181,6 +182,39 @@ MonoBehaviour:
   _followPosition: {x: 0, y: 0}
   _followTransform: {fileID: 0}
   _target: {fileID: 2366955035330675376}
+--- !u!114 &5085278938325276362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729639126689785195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18527bba969b7c6418663570c66339d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _onKilled:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5729639126689785195}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _current: 100
+  _max: 100
+  _id: 1
 --- !u!1 &7274324427446142995
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,6 +263,7 @@ MonoBehaviour:
   _projectilePrefab: {fileID: 4715905929266727603, guid: d8de2b2efb781b749a69d6f7da9ff5b4, type: 3}
   _target: {fileID: 2137729370639285001}
   _poolSize: 10
+  _healthID: 1
 --- !u!1 &7443842784272017754
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2072596670507888041}
   - component: {fileID: 3246191391428586138}
   - component: {fileID: 79649937575350678}
+  - component: {fileID: 6493731762607595603}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -85,6 +86,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 3246191391428586138}
   _maxSpeed: 5
+--- !u!114 &6493731762607595603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4715905929266727603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b797e72a75a84224ab22e4ae23253fa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4715905929266727603}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _healthID: 0
+  _damage: 10
 --- !u!1 &8276185094063411664
 GameObject:
   m_ObjectHideFlags: 0
