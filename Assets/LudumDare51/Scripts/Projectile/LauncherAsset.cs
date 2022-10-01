@@ -9,6 +9,9 @@ public class LauncherAsset : ScriptableObject
     public float ShotDelay => _shotDelay;
     public float Cooldown => _cooldown;
     public float Accuracy => _accuracy;
+    public Sprite HeldSprite => _heldSprite;
+    public Sprite ItemSprite => _itemSprite;
+    public Sprite IconSprite => _iconSprite;
 
     [Header("Prefab")]
     [SerializeField] private GameObject _projectilePrefab;
@@ -19,6 +22,11 @@ public class LauncherAsset : ScriptableObject
     [SerializeField, Min(0.0f)] private float _shotDelay = 0.1f;
     [SerializeField, Range(0.0f, 1.0f)] private float _accuracy = 1.0f;
     [SerializeField, Min(0.001f)] private float _cooldown = 0.1f;
+
+    [Header("Display")]
+    [SerializeField] private Sprite _heldSprite;
+    [SerializeField] private Sprite _itemSprite;
+    [SerializeField] private Sprite _iconSprite;
 
     private void OnValidate()
     {
