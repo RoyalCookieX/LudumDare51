@@ -9,7 +9,7 @@ public enum UpgradeType
 public class Upgrade : MonoBehaviour
 {
     public UpgradeType Type => _type;
-    public LauncherAsset LauncherAsset => _launcherAsset;
+    public LauncherAsset LauncherAsset => _type == UpgradeType.Launcher ? _launcherAsset : null;
 
     [Header("Events")]
     [SerializeField] private UnityEvent _onConsumed;
@@ -21,5 +21,11 @@ public class Upgrade : MonoBehaviour
     public void Consume()
     {
         _onConsumed?.Invoke();
+    }
+
+    public void SetAsLauncher(LauncherAsset asset)
+    {
+        _type = UpgradeType.Launcher;
+        _launcherAsset = asset;
     }
 }
