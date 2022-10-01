@@ -7,8 +7,20 @@ public class ObjectPool
     private int _poolSize;
     private Queue<GameObject> _pool;
 
+    const int MIN_POOL_SIZE = 2;
+
     public ObjectPool(GameObject prefab, int poolSize)
     {
+        if(!prefab)
+        {
+            Debug.LogError("Invalid Prefab!");
+            return;
+        }
+        if (poolSize < MIN_POOL_SIZE)
+        {
+            Debug.LogError("Invalid Prefab!");
+            return;
+        }
         _prefab = prefab;
         _poolSize = poolSize;
         Reset();
@@ -24,18 +36,15 @@ public class ObjectPool
         return instance;
     }
 
-    public void SetPrefab(GameObject prefab)
-    {
-        _prefab = prefab;
-    }
-
-    public void Reset()
+    public void Reset(GameObject newPrefab = null, int newPoolSize = 0)
     {
         _pool?.Clear();
-        _pool = new Queue<GameObject>(_poolSize);
-        for (int i = 0; i < _poolSize; i++)
+        GameObject prefab = newPrefab ? newPrefab : _prefab;
+        int poolSize = newPoolSize >= MIN_POOL_SIZE ? newPoolSize : _poolSize;
+        _pool = new Queue<GameObject>(poolSize);
+        for (int i = 0; i < poolSize; i++)
         {
-            GameObject instance = GameObject.Instantiate(_prefab, Vector3.zero, Quaternion.identity);
+            GameObject instance = GameObject.Instantiate(prefab, Vector3.zero, Quaternion.identity);
             instance.SetActive(false);
             _pool.Enqueue(instance);
         }
