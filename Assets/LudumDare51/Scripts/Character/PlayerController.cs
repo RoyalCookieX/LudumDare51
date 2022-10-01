@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private PlayerMovement _movement;
+    [SerializeField] private ProjectileLauncher _launcher;
     [SerializeField] private Rotator _rotator;
 
     private Camera _mainCamera;
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnAction(InputValue value)
     {
-        print($"action!");
+        _launcher.Launch();
     }
 
     private void OnAim(InputValue value)
