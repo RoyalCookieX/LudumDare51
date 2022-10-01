@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 8832357396964865482}
   - component: {fileID: 125340785504873029}
   - component: {fileID: 5085278938325276362}
+  - component: {fileID: 4610639061483601605}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -219,6 +220,33 @@ MonoBehaviour:
   _max: 100
   _id: 1
   _invincible: 0
+--- !u!114 &4610639061483601605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729639126689785195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9876f0051b7d6748a5efdc61e7163f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onLauncherUpgrade:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6586995313514810487}
+        m_TargetAssemblyTypeName: ProjectileLauncher, Assembly-CSharp
+        m_MethodName: SetAsset
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7274324427446142995
 GameObject:
   m_ObjectHideFlags: 0
