@@ -8,15 +8,26 @@ public class Health : MonoBehaviour
     public float Percentage => _current / (float)_max;
     public int ID => _id;
 
+    public bool Invincible { get => _invincible; set => _invincible = value; }
+
     [Header("Events")]
     [SerializeField] private UnityEvent<float> _onHealthChanged;
+    [SerializeField] private UnityEvent _onRevived;
     [SerializeField] private UnityEvent _onKilled;
 
     [Header("Properties")]
     [SerializeField, Min(0)] private int _current = 100;
     [SerializeField, Min(0)] private int _max = 100;
     [SerializeField] private int _id = 0;
+    [SerializeField] private bool _invincible = false;
 
+    public void Heal(int heal)
+    {
+        if (_current == 0)
+            _onRevived?.Invoke();
+        _current = Mathf.Min(_current + heal, _max);
+        _onHealthChanged?.Invoke(Percentage);
+    }
     public void Kill()
     {
         _current = 0;
@@ -25,7 +36,7 @@ public class Health : MonoBehaviour
 
     public bool Damage(int id, int damage)
     {
-        if (id == _id || damage <= 0)
+        if (id == _id || damage <= 0 || _invincible)
             return false;
 
         _current -= damage;
@@ -35,7 +46,7 @@ public class Health : MonoBehaviour
         return true;
     }
 
-    private void Start()
+    private void OnEnable()
     {
         _onHealthChanged.Invoke(Percentage);
     }
