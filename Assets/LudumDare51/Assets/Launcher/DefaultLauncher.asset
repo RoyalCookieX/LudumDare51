@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c882a0b18f722a4d8a3be646ce1f88d, type: 3}
+  m_Name: DefaultLauncher
+  m_EditorClassIdentifier: 
+  _projectilePrefab: {fileID: 4715905929266727603, guid: d8de2b2efb781b749a69d6f7da9ff5b4, type: 3}
+  _ammo: 3
+  _shotMultiplier: 3
+  _shotDelay: 0.1
+  _accuracy: 0.8
+  _cooldown: 0.5

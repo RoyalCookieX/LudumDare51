@@ -241,7 +241,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568116bfe0543904ebb573eb85793a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onCooldownChanged:
+    m_PersistentCalls:
+      m_Calls: []
   _projectilePrefab: {fileID: 4715905929266727603, guid: d8de2b2efb781b749a69d6f7da9ff5b4, type: 3}
+  _asset: {fileID: 11400000, guid: 95e7269a633bd8f4aa3ade07b8260b8b, type: 2}
   _target: {fileID: 325980459841088810}
   _poolSize: 10
   _healthID: 2
@@ -328,6 +332,9 @@ MonoBehaviour:
   _onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+  _onRevived:
+    m_PersistentCalls:
+      m_Calls: []
   _onKilled:
     m_PersistentCalls:
       m_Calls:
@@ -346,3 +353,4 @@ MonoBehaviour:
   _current: 100
   _max: 100
   _id: 2
+  _invincible: 0
