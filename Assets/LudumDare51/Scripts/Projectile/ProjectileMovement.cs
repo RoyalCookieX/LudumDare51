@@ -10,12 +10,13 @@ public class ProjectileMovement : MonoBehaviour
     [SerializeField, Min(1.0f)] private float _maxSpeed = 1.0f;
     [SerializeField, Min(0.1f)] private float _duration = 1.0f;
 
-    private Coroutine _current;
+    private Coroutine _current = null;
 
     private IEnumerator DurationRoutine()
     {
         yield return new WaitForSeconds(_duration);
         gameObject.SetActive(false);
+        _current = null;
     }
 
     private void OnEnable()
