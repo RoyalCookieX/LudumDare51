@@ -71,7 +71,7 @@ public class ProjectileLauncher : MonoBehaviour
             Quaternion newRotation = Quaternion.AngleAxis(targetAngle, Vector3.forward);
             GameObject instance = _pool.Instantiate(_target.position, newRotation);
             
-            if (!instance.TryGetComponent(out IHurtbox hurtbox))
+            if (instance.TryGetComponent(out IHurtbox hurtbox))
                 hurtbox.HealthID = _healthID;
 
             yield return new WaitForSeconds(_asset.ShotDelay);
