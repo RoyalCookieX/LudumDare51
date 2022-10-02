@@ -109,6 +109,7 @@ MonoBehaviour:
   _onImpact:
     m_PersistentCalls:
       m_Calls: []
+  _renderer: {fileID: 8070038992211002186}
 --- !u!114 &6493731762607595603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +137,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _healthID: 0
+  _onAssetChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4478304774057668189}
+        m_TargetAssemblyTypeName: ProjectileEffects, Assembly-CSharp
+        m_MethodName: SetColorToTeam
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _damage: 10
 --- !u!1 &8276185094063411664
 GameObject:

@@ -1,12 +1,20 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ProjectileImpact : MonoBehaviour
+public class ProjectileEffects : MonoBehaviour
 {
     [Header("Events")]
     [SerializeField] private UnityEvent _onEnabled;
     [SerializeField] private UnityEvent _onDisabled;
     [SerializeField] private UnityEvent<GameObject> _onImpact;
+
+    [Header("Components")]
+    [SerializeField] private SpriteRenderer _renderer;
+
+    public void SetColorToTeam(TeamAsset team)
+    {
+        _renderer.color = team.Color;
+    }
 
     private void OnEnable()
     {

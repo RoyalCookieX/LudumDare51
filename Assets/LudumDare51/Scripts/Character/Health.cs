@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,8 +8,6 @@ public class Health : MonoBehaviour
     public int Current => _current;
     public int Max => _max;
     public float Percentage => _current / (float)_max;
-    public int ID => _id;
-
     public bool Invincible { get => _invincible; set => _invincible = value; }
 
     [Header("Events")]
@@ -16,10 +16,12 @@ public class Health : MonoBehaviour
     [SerializeField] private UnityEvent _onKilled;
 
     [Header("Properties")]
+    [SerializeField] private bool _invincible = false;
     [SerializeField, Min(0)] private int _current = 100;
     [SerializeField, Min(0)] private int _max = 100;
-    [SerializeField] private int _id = 0;
-    [SerializeField] private bool _invincible = false;
+    [SerializeField] private TeamAsset _teamAsset;
+    
+    private List<ITeamReference> _teamRefs;
 
     public void Heal(int heal)
     {
@@ -36,7 +38,7 @@ public class Health : MonoBehaviour
 
     public bool Damage(int id, int damage)
     {
-        if (id == _id || damage <= 0 || _invincible)
+        if (id == _teamAsset.ID || damage <= 0 || _invincible)
             return false;
 
         _current -= damage;
@@ -44,6 +46,13 @@ public class Health : MonoBehaviour
         if (_current <= 0)
             Kill();
         return true;
+    }
+
+    private void Start()
+    {
+        _teamRefs = gameObject.GetComponentsInChildren<ITeamReference>().ToList();
+        foreach (ITeamReference teamRef in _teamRefs)
+            teamRef.SetTeam(_teamAsset);
     }
 
     private void OnEnable()
