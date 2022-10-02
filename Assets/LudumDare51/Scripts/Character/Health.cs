@@ -15,13 +15,15 @@ public class Health : MonoBehaviour
     [SerializeField] private UnityEvent _onRevived;
     [SerializeField] private UnityEvent _onKilled;
 
+    [Header("Components")]
+    [SerializeField] private List<GameObject> _teamRefs;
+
     [Header("Properties")]
     [SerializeField] private bool _invincible = false;
     [SerializeField, Min(0)] private int _current = 100;
     [SerializeField, Min(0)] private int _max = 100;
     [SerializeField] private TeamAsset _teamAsset;
     
-    private List<ITeamReference> _teamRefs;
 
     public void Revive()
     {
@@ -57,9 +59,12 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        _teamRefs = gameObject.GetComponentsInChildren<ITeamReference>().ToList();
-        foreach (ITeamReference teamRef in _teamRefs)
+        foreach (GameObject teamRefObject in _teamRefs)
+        {
+            if (!teamRefObject.TryGetComponent(out ITeamReference teamRef))
+                return;
             teamRef.SetTeam(_teamAsset);
+        }
     }
 
     private void OnEnable()

@@ -373,6 +373,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _teamRefs:
+  - {fileID: 6654814672599455063}
   _invincible: 0
   _current: 10
   _max: 10
