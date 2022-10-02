@@ -11,7 +11,7 @@ public class ProjectileEffects : MonoBehaviour
     [Header("Components")]
     [SerializeField] private SpriteRenderer _renderer;
 
-    public void SetColorFromHealth(HealthAsset asset)
+    public void SetColorFromHealth(TeamAsset asset)
     {
         _renderer.color = asset.Color;
     }

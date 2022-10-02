@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
     [SerializeField] private bool _invincible = false;
     [SerializeField, Min(0)] private int _current = 100;
     [SerializeField, Min(0)] private int _max = 100;
-    [SerializeField] private HealthAsset _asset;
+    [SerializeField] private TeamAsset _teamAsset;
 
     public void Heal(int heal)
     {
@@ -34,7 +34,7 @@ public class Health : MonoBehaviour
 
     public bool Damage(int id, int damage)
     {
-        if (id == _asset.ID || damage <= 0 || _invincible)
+        if (id == _teamAsset.ID || damage <= 0 || _invincible)
             return false;
 
         _current -= damage;

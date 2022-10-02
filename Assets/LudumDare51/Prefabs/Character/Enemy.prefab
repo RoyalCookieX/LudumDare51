@@ -253,7 +253,7 @@ MonoBehaviour:
   _target: {fileID: 325980459841088810}
   _renderer: {fileID: 3707242666112978266}
   _active: 1
-  _healthAsset: {fileID: 11400000, guid: 06e68fd853b6dc94cbe4c5f43630acec, type: 2}
+  _teamAsset: {fileID: 11400000, guid: 06e68fd853b6dc94cbe4c5f43630acec, type: 2}
   _launcherAsset: {fileID: 11400000, guid: 95e7269a633bd8f4aa3ade07b8260b8b, type: 2}
 --- !u!1 &8259786149605837485
 GameObject:
@@ -374,4 +374,4 @@ MonoBehaviour:
   _invincible: 0
   _current: 100
   _max: 100
-  _asset: {fileID: 11400000, guid: 06e68fd853b6dc94cbe4c5f43630acec, type: 2}
+  _teamAsset: {fileID: 11400000, guid: 06e68fd853b6dc94cbe4c5f43630acec, type: 2}

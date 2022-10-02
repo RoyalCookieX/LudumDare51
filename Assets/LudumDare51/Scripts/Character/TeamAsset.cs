@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "LudumDare51/Assets/Health")]
-public class HealthAsset : ScriptableObject
+[CreateAssetMenu(menuName = "LudumDare51/Assets/Team")]
+public class TeamAsset : ScriptableObject
 {
     public int ID => _id;
     public Color Color => _color;

@@ -18,12 +18,12 @@ public class ProjectileLauncher : MonoBehaviour
 
     [Header("Properties")]
     [SerializeField] private bool _active = true;
-    [SerializeField] private HealthAsset _healthAsset;
+    [SerializeField] private TeamAsset _teamAsset;
     [SerializeField] private LauncherAsset _launcherAsset;
 
     private float _currentCooldown = 0.0f;
     private ObjectPool _pool;
-    private LauncherAsset _defaultAsset;
+    private LauncherAsset _defaultLauncher;
     private Coroutine _launchRoutine = null;
     private Coroutine _cooldownRoutine = null;
 
@@ -45,7 +45,7 @@ public class ProjectileLauncher : MonoBehaviour
 
     public void SetAsset(LauncherAsset asset)
     {
-        _launcherAsset = asset ? asset : _defaultAsset;
+        _launcherAsset = asset ? asset : _defaultLauncher;
         int poolSize = _launcherAsset.PoolSize * _launcherAsset.ShotMultiplier;
         _pool = new ObjectPool(_launcherAsset.ProjectilePrefab, poolSize);
         SetCooldown(0.0f);
@@ -72,7 +72,7 @@ public class ProjectileLauncher : MonoBehaviour
             GameObject instance = _pool.Instantiate(_target.position, newRotation);
 
             if (instance.TryGetComponent(out IHurtbox hurtbox))
-                hurtbox.SetAsset(_healthAsset);
+                hurtbox.SetAsset(_teamAsset);
 
             yield return new WaitForSeconds(_launcherAsset.ShotDelay);
         }
@@ -90,7 +90,7 @@ public class ProjectileLauncher : MonoBehaviour
 
     private void Start()
     {
-        _defaultAsset = _launcherAsset;
-        SetAsset(_defaultAsset);
+        _defaultLauncher = _launcherAsset;
+        SetAsset(_defaultLauncher);
     }
 }
