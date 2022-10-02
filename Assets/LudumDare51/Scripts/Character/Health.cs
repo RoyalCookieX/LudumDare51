@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -18,6 +20,8 @@ public class Health : MonoBehaviour
     [SerializeField, Min(0)] private int _current = 100;
     [SerializeField, Min(0)] private int _max = 100;
     [SerializeField] private TeamAsset _teamAsset;
+    
+    private List<ITeamReference> _teamRefs;
 
     public void Heal(int heal)
     {
@@ -42,6 +46,13 @@ public class Health : MonoBehaviour
         if (_current <= 0)
             Kill();
         return true;
+    }
+
+    private void Start()
+    {
+        _teamRefs = gameObject.GetComponentsInChildren<ITeamReference>().ToList();
+        foreach (ITeamReference teamRef in _teamRefs)
+            teamRef.SetTeam(_teamAsset);
     }
 
     private void OnEnable()

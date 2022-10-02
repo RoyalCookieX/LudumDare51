@@ -237,7 +237,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6586995313514810487}
         m_TargetAssemblyTypeName: ProjectileLauncher, Assembly-CSharp
-        m_MethodName: SetAsset
+        m_MethodName: SetLauncher
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -304,8 +304,7 @@ MonoBehaviour:
   _target: {fileID: 2137729370639285001}
   _renderer: {fileID: 6165139411781841907}
   _active: 1
-  _teamAsset: {fileID: 11400000, guid: 15cc8e4c1e4d1eb40b5411344788a9ea, type: 2}
-  _launcherAsset: {fileID: 11400000, guid: 95e7269a633bd8f4aa3ade07b8260b8b, type: 2}
+  _launcher: {fileID: 11400000, guid: 95e7269a633bd8f4aa3ade07b8260b8b, type: 2}
 --- !u!1 &7443842784272017754
 GameObject:
   m_ObjectHideFlags: 0

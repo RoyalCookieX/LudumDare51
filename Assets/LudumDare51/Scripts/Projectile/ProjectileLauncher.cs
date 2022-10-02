@@ -2,10 +2,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ProjectileLauncher : MonoBehaviour
+public class ProjectileLauncher : MonoBehaviour, ITeamReference
 {
+    public TeamAsset Team => _team;
     public bool Active { get => _active; set => _active = value; }
-    private float Percentage => _launcherAsset ? (_currentCooldown / _launcherAsset.Cooldown) : 0.0f;
+    private float Percentage => _launcher ? (_currentCooldown / _launcher.Cooldown) : 0.0f;
 
     [Header("Events")]
     [SerializeField] private UnityEvent _onLaunched;
@@ -18,11 +19,11 @@ public class ProjectileLauncher : MonoBehaviour
 
     [Header("Properties")]
     [SerializeField] private bool _active = true;
-    [SerializeField] private TeamAsset _teamAsset;
-    [SerializeField] private LauncherAsset _launcherAsset;
+    [SerializeField] private LauncherAsset _launcher;
 
     private float _currentCooldown = 0.0f;
     private ObjectPool _pool;
+    private TeamAsset _team;
     private LauncherAsset _defaultLauncher;
     private Coroutine _launchRoutine = null;
     private Coroutine _cooldownRoutine = null;
@@ -43,14 +44,19 @@ public class ProjectileLauncher : MonoBehaviour
         return true;
     }
 
-    public void SetAsset(LauncherAsset asset)
+    public void SetTeam(TeamAsset team)
     {
-        _launcherAsset = asset ? asset : _defaultLauncher;
-        int poolSize = _launcherAsset.PoolSize * _launcherAsset.ShotMultiplier;
-        _pool = new ObjectPool(_launcherAsset.ProjectilePrefab, poolSize);
+        _team = team;
+    }
+
+    public void SetLauncher(LauncherAsset launcher)
+    {
+        _launcher = launcher ? launcher : _defaultLauncher;
+        int poolSize = _launcher.PoolSize * _launcher.ShotMultiplier;
+        _pool = new ObjectPool(_launcher.ProjectilePrefab, poolSize);
         SetCooldown(0.0f);
-        _renderer.sprite = _launcherAsset.HeldSprite;
-        _onAssetChanged?.Invoke(_launcherAsset);
+        _renderer.sprite = _launcher.HeldSprite;
+        _onAssetChanged?.Invoke(_launcher);
     }
 
     private void SetCooldown(float cooldown)
@@ -61,26 +67,26 @@ public class ProjectileLauncher : MonoBehaviour
 
     private IEnumerator LaunchRoutine()
     {
-        for (int i = 0; i < _launcherAsset.ShotMultiplier; i++)
+        for (int i = 0; i < _launcher.ShotMultiplier; i++)
         {
             float targetRotation = _target.rotation.eulerAngles.z;
-            float variance = 90.0f * (1.0f - _launcherAsset.Accuracy);
+            float variance = 90.0f * (1.0f - _launcher.Accuracy);
             float angleMin = targetRotation - variance;
             float angleMax = targetRotation + variance;
             float targetAngle = Random.Range(angleMin, angleMax);
             Quaternion newRotation = Quaternion.AngleAxis(targetAngle, Vector3.forward);
             GameObject instance = _pool.Instantiate(_target.position, newRotation);
 
-            if (instance.TryGetComponent(out IHurtbox hurtbox))
-                hurtbox.SetAsset(_teamAsset);
+            if (instance.TryGetComponent(out ITeamReference teamRef))
+                teamRef.SetTeam(_team);
 
-            yield return new WaitForSeconds(_launcherAsset.ShotDelay);
+            yield return new WaitForSeconds(_launcher.ShotDelay);
         }
     }
 
     private IEnumerator CooldownRoutine()
     {
-        SetCooldown(_launcherAsset.Cooldown);
+        SetCooldown(_launcher.Cooldown);
         while (_currentCooldown > 0.0f)
         {
             yield return null;
@@ -90,7 +96,7 @@ public class ProjectileLauncher : MonoBehaviour
 
     private void Start()
     {
-        _defaultLauncher = _launcherAsset;
-        SetAsset(_defaultLauncher);
+        _defaultLauncher = _launcher;
+        SetLauncher(_defaultLauncher);
     }
 }

@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider2D))]
-public class TriggerHurtbox : MonoBehaviour, IHurtbox
+public class TriggerHurtbox : MonoBehaviour, ITeamReference
 {
-    public int TeamID => _asset ? _asset.ID : 0;
+    public TeamAsset Team => _team; 
     public int Damage => _damage;
 
     [Header("Events")]
@@ -14,17 +14,17 @@ public class TriggerHurtbox : MonoBehaviour, IHurtbox
     [Header("Properties")]
     [SerializeField, Min(0)] private int _damage = 10;
 
-    private TeamAsset _asset;
+    private TeamAsset _team;
 
-    public void SetAsset(TeamAsset asset)
+    public void SetTeam(TeamAsset team)
     {
-        _asset = asset;
-        _onAssetChanged?.Invoke(_asset);
+        _team = team;
+        _onAssetChanged?.Invoke(_team);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.TryGetComponent(out Health health) || !health.Damage(_asset.ID, _damage))
+        if (!other.TryGetComponent(out Health health) || !health.Damage(_team.ID, _damage))
             return;
         _onHit?.Invoke();
     }

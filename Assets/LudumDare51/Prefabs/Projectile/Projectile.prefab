@@ -142,7 +142,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4478304774057668189}
         m_TargetAssemblyTypeName: ProjectileEffects, Assembly-CSharp
-        m_MethodName: SetColorFromHealth
+        m_MethodName: SetColorToTeam
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

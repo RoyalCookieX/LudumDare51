@@ -1,5 +1,12 @@
 using UnityEngine;
 
+public interface ITeamReference
+{
+    public TeamAsset Team { get; }
+
+    public void SetTeam(TeamAsset team);
+}
+
 [CreateAssetMenu(menuName = "LudumDare51/Assets/Team")]
 public class TeamAsset : ScriptableObject
 {
