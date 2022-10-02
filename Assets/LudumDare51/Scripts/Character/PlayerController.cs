@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     {
         _actionEnabled = enable;
         _launcher.SetActive(_actionEnabled);
+        if (!_actionEnabled)
+            _action = false;
     }
 
     public void ResetLauncher()
@@ -45,10 +47,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnAction(InputValue value)
     {
-        if (!_inputEnabled || !_actionEnabled)
+        if (!_inputEnabled)
             return;
 
-        _action = value.isPressed;
+        _action = _actionEnabled ? value.isPressed : false;
     }
 
     private void OnAim(InputValue value)
@@ -74,7 +76,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if(_action)
+        if (_action)
             _launcher.Launch();
     }
 }
