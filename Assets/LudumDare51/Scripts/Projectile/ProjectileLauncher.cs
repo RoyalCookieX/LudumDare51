@@ -8,8 +8,7 @@ public class ProjectileLauncher : MonoBehaviour
     private float Percentage => _asset ? (_currentCooldown / _asset.Cooldown) : 0.0f;
 
     [Header("Events")]
-    [SerializeField] private UnityEvent<int, int> _onLaunched;
-    [SerializeField] private UnityEvent<int, int> _onReloaded;
+    [SerializeField] private UnityEvent _onLaunched;
     [SerializeField] private UnityEvent<float> _onCooldownChanged;
     [SerializeField] private UnityEvent<LauncherAsset> _onAssetChanged;
 
@@ -22,22 +21,15 @@ public class ProjectileLauncher : MonoBehaviour
     [SerializeField] private int _healthID = 0;
     [SerializeField] private LauncherAsset _asset;
 
-    private int _currentAmmo = 0;
     private float _currentCooldown = 0.0f;
     private ObjectPool _pool;
     private LauncherAsset _defaultAsset;
     private Coroutine _launchRoutine = null;
     private Coroutine _cooldownRoutine = null;
 
-    public void Reload()
-    {
-        _currentAmmo = _asset.Ammo;
-        _onReloaded?.Invoke(_currentAmmo, _asset.Ammo);
-    }
-
     public bool Launch()
     {
-        if (!_active || _currentCooldown > 0.0f || _currentAmmo < 1)
+        if (!_active || _currentCooldown > 0.0f)
             return false;
 
         if (_cooldownRoutine != null)
@@ -47,17 +39,15 @@ public class ProjectileLauncher : MonoBehaviour
         if (_launchRoutine != null)
             StopCoroutine(_launchRoutine);
         _launchRoutine = StartCoroutine(LaunchRoutine());
-        _currentAmmo--;
-        _onLaunched?.Invoke(_currentAmmo, _asset.Ammo);
+        _onLaunched?.Invoke();
         return true;
     }
 
     public void SetAsset(LauncherAsset asset)
     {
         _asset = asset ? asset : _defaultAsset;
-        int poolSize = _asset.Ammo * _asset.ShotMultiplier;
+        int poolSize = _asset.PoolSize * _asset.ShotMultiplier;
         _pool = new ObjectPool(_asset.ProjectilePrefab, poolSize);
-        Reload();
         SetCooldown(0.0f);
         _renderer.sprite = _asset.HeldSprite;
         _onAssetChanged?.Invoke(_asset);
@@ -81,7 +71,7 @@ public class ProjectileLauncher : MonoBehaviour
             Quaternion newRotation = Quaternion.AngleAxis(targetAngle, Vector3.forward);
             GameObject instance = _pool.Instantiate(_target.position, newRotation);
             
-            if (!instance.TryGetComponent(out IHurtbox hurtbox))
+            if (instance.TryGetComponent(out IHurtbox hurtbox))
                 hurtbox.HealthID = _healthID;
 
             yield return new WaitForSeconds(_asset.ShotDelay);

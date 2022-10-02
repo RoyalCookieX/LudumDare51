@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3931209344304363343}
   - component: {fileID: 3246191391428586138}
   - component: {fileID: 79649937575350678}
+  - component: {fileID: 2483947846504082409}
   - component: {fileID: 6493731762607595603}
   m_Layer: 0
   m_Name: FastProjectile
@@ -87,6 +88,27 @@ MonoBehaviour:
   _rigidbody: {fileID: 3246191391428586138}
   _maxSpeed: 7
   _duration: 1.25
+--- !u!114 &2483947846504082409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4715905929266727603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436e3afb3af10554aa07f26db67ae3d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onEnabled:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDisabled:
+    m_PersistentCalls:
+      m_Calls: []
+  _onImpact:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6493731762607595603
 MonoBehaviour:
   m_ObjectHideFlags: 0
