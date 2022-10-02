@@ -364,6 +364,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5729639126689785195, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
   m_PrefabInstance: {fileID: 244710856118220847}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1338672255 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8123541783691972794, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
+  m_PrefabInstance: {fileID: 244710856118220847}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338672250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ae483efdf7b8ee4da82533e347ec5cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1537609276
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +526,7 @@ MonoBehaviour:
   _timeWarper: {fileID: 1537609278}
   _characterSpawner: {fileID: 1537609279}
   _upgradeSpawner: {fileID: 1537609280}
+  _playerController: {fileID: 1338672255}
   _warped: 0
   _timeInterval: 10
 --- !u!1 &1539584154

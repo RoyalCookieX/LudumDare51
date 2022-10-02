@@ -7,6 +7,7 @@ public class GameState : MonoBehaviour
     [SerializeField] private TimeWarper _timeWarper;
     [SerializeField] private CharacterSpawner _characterSpawner;
     [SerializeField] private UpgradeSpawner _upgradeSpawner;
+    [SerializeField] private PlayerController _playerController;
 
     [Header("Properties")]
     [SerializeField] private bool _warped = false;
@@ -23,10 +24,11 @@ public class GameState : MonoBehaviour
                     _characterSpawner.SpawnWave();
                     _characterSpawner.IncrementWave();
                     _upgradeSpawner.Spawn();
+                    _playerController.EnableAction(false);
                 } break;
                 case true:
                 {
-
+                    _playerController.EnableAction(true);
                 } break;
             }
 

@@ -51,7 +51,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.25
 --- !u!50 &3246191391428586138
 Rigidbody2D:
   serializedVersion: 4
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 3246191391428586138}
-  _maxSpeed: 5
+  _maxSpeed: 10
   _duration: 1
 --- !u!114 &4478304774057668189
 MonoBehaviour:
@@ -179,7 +179,7 @@ Transform:
   m_GameObject: {fileID: 8276185094063411664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1135902467974106501}
   m_RootOrder: 0
