@@ -31,7 +31,7 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
 
     public bool Launch()
     {
-        if (!_active || _currentCooldown > 0.0f)
+        if (!_active || !_launcher || _currentCooldown > 0.0f)
             return false;
 
         if (_cooldownRoutine != null)
@@ -80,6 +80,12 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
 
     private void SetCooldown(float cooldown)
     {
+        if (!_launcher)
+        {
+            _currentCooldown = 0.0f;
+            return;
+        }
+
         _currentCooldown = cooldown;
         _onCooldownChanged?.Invoke(Percentage);
     }
