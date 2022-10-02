@@ -66,6 +66,18 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
         _onAssetChanged?.Invoke(_launcher);
     }
 
+    public void ResetLauncher()
+    {
+        if (_launchRoutine != null)
+            StopCoroutine(_launchRoutine);
+
+        _launcher = null;
+        _pool = null;
+        SetCooldown(0.0f);
+        _renderer.sprite = null;
+        _onActiveChanged?.Invoke(_launcher);
+    }
+
     private void SetCooldown(float cooldown)
     {
         _currentCooldown = cooldown;

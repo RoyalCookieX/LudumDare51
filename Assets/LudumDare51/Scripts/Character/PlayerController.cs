@@ -29,6 +29,11 @@ public class PlayerController : MonoBehaviour
         _launcher.SetActive(_actionEnabled);
     }
 
+    public void ResetLauncher()
+    {
+        _launcher.ResetLauncher();
+    }
+
     private void OnMovement(InputValue value)
     {
         if (!_inputEnabled)

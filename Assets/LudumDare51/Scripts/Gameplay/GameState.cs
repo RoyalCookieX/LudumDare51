@@ -25,6 +25,7 @@ public class GameState : MonoBehaviour
                     _characterSpawner.IncrementWave();
                     _upgradeSpawner.Spawn();
                     _playerController.EnableAction(false);
+                    _playerController.ResetLauncher();
                 } break;
                 case true:
                 {
