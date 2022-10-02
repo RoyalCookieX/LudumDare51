@@ -86,8 +86,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 3246191391428586138}
-  _maxSpeed: 7
-  _duration: 1.25
+  _maxSpeed: 22.5
+  _duration: 0.8
 --- !u!114 &2483947846504082409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _damage: 16
+  _damage: 10
 --- !u!1 &8276185094063411664
 GameObject:
   m_ObjectHideFlags: 0

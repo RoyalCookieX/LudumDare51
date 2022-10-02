@@ -23,6 +23,13 @@ public class Health : MonoBehaviour
     
     private List<ITeamReference> _teamRefs;
 
+    public void Revive()
+    {
+        _current = _max;
+        _onRevived?.Invoke();
+        _onHealthChanged?.Invoke(Percentage);
+    }
+
     public void Heal(int heal)
     {
         if (_current == 0)

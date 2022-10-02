@@ -152,6 +152,8 @@ MonoBehaviour:
   _movement: {fileID: 8832357396964865482}
   _launcher: {fileID: 6586995313514810487}
   _rotator: {fileID: 125340785504873029}
+  _inputEnabled: 1
+  _actionEnabled: 1
 --- !u!114 &8832357396964865482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,8 +219,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _invincible: 0
-  _current: 100
-  _max: 100
+  _current: 20
+  _max: 20
   _teamAsset: {fileID: 11400000, guid: 15cc8e4c1e4d1eb40b5411344788a9ea, type: 2}
 --- !u!114 &4610639061483601605
 MonoBehaviour:
@@ -293,6 +295,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onLaunched:
+    m_PersistentCalls:
+      m_Calls: []
+  _onActiveChanged:
     m_PersistentCalls:
       m_Calls: []
   _onCooldownChanged:

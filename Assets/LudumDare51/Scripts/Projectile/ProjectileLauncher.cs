@@ -5,11 +5,12 @@ using UnityEngine.Events;
 public class ProjectileLauncher : MonoBehaviour, ITeamReference
 {
     public TeamAsset Team => _team;
-    public bool Active { get => _active; set => _active = value; }
+    public bool Active => _active;
     private float Percentage => _launcher ? (_currentCooldown / _launcher.Cooldown) : 0.0f;
 
     [Header("Events")]
     [SerializeField] private UnityEvent _onLaunched;
+    [SerializeField] private UnityEvent<bool> _onActiveChanged;
     [SerializeField] private UnityEvent<float> _onCooldownChanged;
     [SerializeField] private UnityEvent<LauncherAsset> _onAssetChanged;
 
@@ -44,6 +45,12 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
         return true;
     }
 
+    public void SetActive(bool active)
+    {
+        _active = active;
+        _onActiveChanged?.Invoke(_active);
+    }
+
     public void SetTeam(TeamAsset team)
     {
         _team = team;
@@ -57,6 +64,18 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
         SetCooldown(0.0f);
         _renderer.sprite = _launcher.HeldSprite;
         _onAssetChanged?.Invoke(_launcher);
+    }
+
+    public void ResetLauncher()
+    {
+        if (_launchRoutine != null)
+            StopCoroutine(_launchRoutine);
+
+        _launcher = null;
+        _pool = null;
+        SetCooldown(0.0f);
+        _renderer.sprite = null;
+        _onActiveChanged?.Invoke(_launcher);
     }
 
     private void SetCooldown(float cooldown)
@@ -94,7 +113,7 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         _defaultLauncher = _launcher;
         SetLauncher(_defaultLauncher);

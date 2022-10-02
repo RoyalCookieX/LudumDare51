@@ -19,7 +19,7 @@ public class CharacterSpawner : MonoBehaviour
     [SerializeField, Min(1.00f)] private Vector2 _spawnWaveRange = Vector2.one;
     [SerializeField, Min(1.01f)] private Vector2 _minSpawnWaveMultiplierRange = new Vector2(1.25f, 2.25f);
     [SerializeField, Min(1.01f)] private Vector2 _maxSpawnWaveMultiplierRange = new Vector2(2.00f, 2.50f);
-    [SerializeField, Min(0.01f)] private Vector2 _baseSpawnDelayRange = new Vector2(0.5f, 1.5f);
+    [SerializeField, Min(0.01f)] private Vector2 _spawnDelayRange = new Vector2(0.5f, 1.5f);
     [SerializeField] private SpawnBounds _spawnBounds;
 
     private int _currentWave = 0;
@@ -52,23 +52,23 @@ public class CharacterSpawner : MonoBehaviour
     {        
         for(int i = 0; i < WaveSize; i++)
         {
-            Vector2 targetPosition = _spawnBounds.Evaluate(transform.position);
+            Vector2 targetPosition = _spawnBounds.Evaluate();
             GameObject instance = _pool.Instantiate(targetPosition, Quaternion.identity);
             _onCharacterSpawned?.Invoke(instance);
 
-            float spawnDelay = Random.Range(_baseSpawnDelayRange.x, _baseSpawnDelayRange.y) / WaveSize;
+            float spawnDelay = Random.Range(_spawnDelayRange.x, _spawnDelayRange.y);
             yield return new WaitForSeconds(spawnDelay);
         }
         _current = null;
     }
 
-    private void Start()
+    private void Awake()
     {
         _pool = new ObjectPool(_characterPrefab, _maxWaveSize);
     }
     
     private void OnDrawGizmosSelected()
     {
-        _spawnBounds.DrawGizmos(transform.position, Color.red);
+        _spawnBounds.DrawGizmos(Color.red);
     }
 }

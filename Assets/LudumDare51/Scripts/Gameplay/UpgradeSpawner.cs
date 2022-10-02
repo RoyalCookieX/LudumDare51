@@ -13,7 +13,7 @@ public class UpgradeSpawner : MonoBehaviour
     [ContextMenu("Spawn Upgrade")]
     public Upgrade Spawn()
     {
-        Vector2 targetPosition = _spawnBounds.Evaluate(transform.position);
+        Vector2 targetPosition = _spawnBounds.Evaluate();
         _upgrade.transform.position = targetPosition;
         _upgrade.gameObject.SetActive(true);
         switch (Random.Range(0, 1)) {
@@ -24,6 +24,6 @@ public class UpgradeSpawner : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        _spawnBounds.DrawGizmos(transform.position, Color.green);
+        _spawnBounds.DrawGizmos(Color.green);
     }
 }
