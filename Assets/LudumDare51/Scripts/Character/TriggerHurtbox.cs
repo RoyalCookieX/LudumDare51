@@ -9,6 +9,7 @@ public class TriggerHurtbox : MonoBehaviour, IHurtbox
 
     [Header("Events")]
     [SerializeField] private UnityEvent _onHit;
+    [SerializeField] private UnityEvent<HealthAsset> _onAssetChanged;
 
     [Header("Properties")]
     [SerializeField, Min(0)] private int _damage = 10;
@@ -18,6 +19,7 @@ public class TriggerHurtbox : MonoBehaviour, IHurtbox
     public void SetAsset(HealthAsset asset)
     {
         _asset = asset;
+        _onAssetChanged?.Invoke(_asset);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
