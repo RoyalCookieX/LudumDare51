@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ProjectileLauncher _launcher;
     [SerializeField] private Rotator _rotator;
 
+    private bool _action = false;
     private Camera _mainCamera;
 
     private void OnEnable()
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnAction(InputValue value)
     {
-        _launcher.Launch();
+        _action = value.isPressed;
     }
 
     private void OnAim(InputValue value)
@@ -31,5 +32,11 @@ public class PlayerController : MonoBehaviour
         Vector2 cursorPosition = value.Get<Vector2>();
         Vector3 worldPosition = _mainCamera.ScreenToWorldPoint(cursorPosition);
         _rotator.SetFollowPosition(worldPosition);
+    }
+
+    private void Update()
+    {
+        if(_action)
+            _launcher.Launch();
     }
 }
