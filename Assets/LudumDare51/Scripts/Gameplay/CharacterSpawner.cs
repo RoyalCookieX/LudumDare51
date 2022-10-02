@@ -9,6 +9,7 @@ public class CharacterSpawner : MonoBehaviour
 
     [Header("Events")]
     [SerializeField] private UnityEvent<int, int> _onWaveSpawned;
+    [SerializeField] private UnityEvent<GameObject> _onCharacterSpawned;
 
     [Header("Prefab")]
     [SerializeField] private GameObject _characterPrefab;
@@ -52,7 +53,8 @@ public class CharacterSpawner : MonoBehaviour
         for(int i = 0; i < WaveSize; i++)
         {
             Vector2 targetPosition = _spawnBounds.Evaluate(transform.position);
-            _pool.Instantiate(targetPosition, Quaternion.identity);
+            GameObject instance = _pool.Instantiate(targetPosition, Quaternion.identity);
+            _onCharacterSpawned?.Invoke(instance);
 
             float spawnDelay = Random.Range(_baseSpawnDelayRange.x, _baseSpawnDelayRange.y) / WaveSize;
             yield return new WaitForSeconds(spawnDelay);
