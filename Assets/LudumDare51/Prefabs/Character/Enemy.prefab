@@ -244,6 +244,9 @@ MonoBehaviour:
   _onLaunched:
     m_PersistentCalls:
       m_Calls: []
+  _onActiveChanged:
+    m_PersistentCalls:
+      m_Calls: []
   _onCooldownChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -371,6 +374,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _invincible: 0
-  _current: 100
-  _max: 100
+  _current: 10
+  _max: 10
   _teamAsset: {fileID: 11400000, guid: 06e68fd853b6dc94cbe4c5f43630acec, type: 2}

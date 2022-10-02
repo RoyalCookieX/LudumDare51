@@ -152,7 +152,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _damage: 10
+  _damage: 1
 --- !u!1 &8276185094063411664
 GameObject:
   m_ObjectHideFlags: 0
