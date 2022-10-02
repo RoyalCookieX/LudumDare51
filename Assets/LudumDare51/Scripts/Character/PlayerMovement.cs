@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (MoveDirection == Vector2.zero)
             return;
-        _rigidbody.AddForce(MoveDirection, ForceMode2D.Force);
-        _rigidbody.velocity = Vector3.ClampMagnitude(_rigidbody.velocity, _maxSpeed);
+        _rigidbody.position += (_maxSpeed * Time.deltaTime * MoveDirection);
     }
 }
