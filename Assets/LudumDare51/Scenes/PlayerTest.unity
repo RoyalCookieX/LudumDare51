@@ -158,8 +158,8 @@ MonoBehaviour:
   _onTimeRemainingChanged:
     m_PersistentCalls:
       m_Calls: []
-  _slowed: 1
-  _timeInterval: 5
+  _slowed: 0
+  _timeInterval: 10
   _slowMultiplier: 0.25
   _normalMultiplier: 1
   _timeIntervalBlend:
@@ -255,7 +255,7 @@ MonoBehaviour:
   _baseSpawnDelayRange: {x: 0.5, y: 1.5}
   _spawnBounds:
     _type: 1
-    _bounds: {x: 10, y: 10}
+    _bounds: {x: 27.9, y: 15.9}
 --- !u!4 &510410046
 Transform:
   m_ObjectHideFlags: 0
@@ -302,7 +302,7 @@ MonoBehaviour:
   _upgrade: {fileID: 927388222}
   _spawnBounds:
     _type: 1
-    _bounds: {x: 16, y: 9}
+    _bounds: {x: 34.8, y: 19.3}
   _launcherAssets:
   - {fileID: 11400000, guid: 7a9888aa6973a6a4aa9c3aedb6f7772a, type: 2}
   - {fileID: 11400000, guid: e8500365dfe1ac24f946230cb2297dd3, type: 2}
@@ -611,7 +611,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

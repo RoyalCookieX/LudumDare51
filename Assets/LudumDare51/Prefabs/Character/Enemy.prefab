@@ -322,6 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04afcfd1b38ff8f439c12bd98b73d634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _launcher: {fileID: 6066909515018209102}
   _rotator: {fileID: 3772360543422809897}
 --- !u!114 &3772360543422809897
 MonoBehaviour:
