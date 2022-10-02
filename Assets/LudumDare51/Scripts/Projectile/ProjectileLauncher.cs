@@ -94,7 +94,7 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         _defaultLauncher = _launcher;
         SetLauncher(_defaultLauncher);

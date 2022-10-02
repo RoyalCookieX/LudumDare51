@@ -62,7 +62,7 @@ public class CharacterSpawner : MonoBehaviour
         _current = null;
     }
 
-    private void Start()
+    private void Awake()
     {
         _pool = new ObjectPool(_characterPrefab, _maxWaveSize);
     }
