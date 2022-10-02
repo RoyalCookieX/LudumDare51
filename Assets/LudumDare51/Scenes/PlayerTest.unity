@@ -158,8 +158,8 @@ MonoBehaviour:
   _onTimeRemainingChanged:
     m_PersistentCalls:
       m_Calls: []
-  _slowed: 0
-  _timeInterval: 100
+  _slowed: 1
+  _timeInterval: 5
   _slowMultiplier: 0.25
   _normalMultiplier: 1
   _timeIntervalBlend:
