@@ -244,9 +244,6 @@ MonoBehaviour:
   _onLaunched:
     m_PersistentCalls:
       m_Calls: []
-  _onReloaded:
-    m_PersistentCalls:
-      m_Calls: []
   _onCooldownChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -256,8 +253,8 @@ MonoBehaviour:
   _target: {fileID: 325980459841088810}
   _renderer: {fileID: 3707242666112978266}
   _active: 1
-  _healthID: 2
-  _asset: {fileID: 11400000, guid: 95e7269a633bd8f4aa3ade07b8260b8b, type: 2}
+  _healthAsset: {fileID: 11400000, guid: 06e68fd853b6dc94cbe4c5f43630acec, type: 2}
+  _launcherAsset: {fileID: 11400000, guid: 95e7269a633bd8f4aa3ade07b8260b8b, type: 2}
 --- !u!1 &8259786149605837485
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +371,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _invincible: 0
   _current: 100
   _max: 100
-  _id: 2
-  _invincible: 0
+  _asset: {fileID: 11400000, guid: 06e68fd853b6dc94cbe4c5f43630acec, type: 2}

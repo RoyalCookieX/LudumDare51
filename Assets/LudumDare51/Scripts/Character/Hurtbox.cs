@@ -1,5 +1,7 @@
 public interface IHurtbox
 {
-    int HealthID { get; set; }
+    int HealthID { get; }
     int Damage { get; }
+
+    void SetAsset(HealthAsset asset);
 }

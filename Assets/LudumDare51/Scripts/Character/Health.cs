@@ -6,8 +6,6 @@ public class Health : MonoBehaviour
     public int Current => _current;
     public int Max => _max;
     public float Percentage => _current / (float)_max;
-    public int ID => _id;
-
     public bool Invincible { get => _invincible; set => _invincible = value; }
 
     [Header("Events")]
@@ -16,10 +14,10 @@ public class Health : MonoBehaviour
     [SerializeField] private UnityEvent _onKilled;
 
     [Header("Properties")]
+    [SerializeField] private bool _invincible = false;
     [SerializeField, Min(0)] private int _current = 100;
     [SerializeField, Min(0)] private int _max = 100;
-    [SerializeField] private int _id = 0;
-    [SerializeField] private bool _invincible = false;
+    [SerializeField] private HealthAsset _asset;
 
     public void Heal(int heal)
     {
@@ -36,7 +34,7 @@ public class Health : MonoBehaviour
 
     public bool Damage(int id, int damage)
     {
-        if (id == _id || damage <= 0 || _invincible)
+        if (id == _asset.ID || damage <= 0 || _invincible)
             return false;
 
         _current -= damage;
