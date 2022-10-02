@@ -123,199 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &375392509
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 375392511}
-  - component: {fileID: 375392510}
-  m_Layer: 0
-  m_Name: TimeWarper
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &375392510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 375392509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b1e90efe44afa44e958b098038405d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _onWarped:
-    m_PersistentCalls:
-      m_Calls: []
-  _normalTimeScale: 1
-  _warpedTimeScale: 0.25
-  _pausedTimeScale: 0
-  _warpBlend:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &375392511
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 375392509}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1537609277}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &510410044
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 510410046}
-  - component: {fileID: 510410045}
-  m_Layer: 0
-  m_Name: CharacterSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &510410045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 510410044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3b17bc0d2885094190bdfdc94f07d38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _onWaveSpawned:
-    m_PersistentCalls:
-      m_Calls: []
-  _onCharacterSpawned:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1539584155}
-        m_TargetAssemblyTypeName: PlayerTarget, Assembly-CSharp
-        m_MethodName: TargetPlayer
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _characterPrefab: {fileID: 8259786149605837485, guid: 21dea00287dd72946be45f73650be648, type: 3}
-  _maxWaveSize: 25
-  _spawnWaveRange: {x: 1, y: 1}
-  _minSpawnWaveMultiplierRange: {x: 1.25, y: 1.5}
-  _maxSpawnWaveMultiplierRange: {x: 2, y: 2.25}
-  _baseSpawnDelayRange: {x: 0.5, y: 1.5}
-  _spawnBounds:
-    _type: 1
-    _bounds: {x: 27.9, y: 15.9}
---- !u!4 &510410046
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 510410044}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1537609277}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &771936040
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 771936042}
-  - component: {fileID: 771936041}
-  m_Layer: 0
-  m_Name: UpgradeSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &771936041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771936040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02beb27150bac9948a0fc9259dbb715b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _upgrade: {fileID: 927388222}
-  _spawnBounds:
-    _type: 1
-    _bounds: {x: 34.8, y: 19.3}
-  _launcherAssets:
-  - {fileID: 11400000, guid: 7a9888aa6973a6a4aa9c3aedb6f7772a, type: 2}
-  - {fileID: 11400000, guid: e8500365dfe1ac24f946230cb2297dd3, type: 2}
---- !u!4 &771936042
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771936040}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1537609277}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &820248031
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +373,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1537609277}
+  - component: {fileID: 1537609281}
+  - component: {fileID: 1537609278}
+  - component: {fileID: 1537609279}
+  - component: {fileID: 1537609280}
   m_Layer: 0
   m_Name: GameState
   m_TagString: Untagged
@@ -583,13 +394,129 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 771936042}
-  - {fileID: 510410046}
-  - {fileID: 375392511}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1537609278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537609276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1e90efe44afa44e958b098038405d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onWarped:
+    m_PersistentCalls:
+      m_Calls: []
+  _normalTimeScale: 1
+  _warpedTimeScale: 0.25
+  _pausedTimeScale: 0
+  _warpBlend:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1537609279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537609276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b17bc0d2885094190bdfdc94f07d38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onWaveSpawned:
+    m_PersistentCalls:
+      m_Calls: []
+  _onCharacterSpawned:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1539584155}
+        m_TargetAssemblyTypeName: PlayerTarget, Assembly-CSharp
+        m_MethodName: TargetPlayer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _characterPrefab: {fileID: 8259786149605837485, guid: 21dea00287dd72946be45f73650be648, type: 3}
+  _maxWaveSize: 25
+  _spawnWaveRange: {x: 1, y: 1}
+  _minSpawnWaveMultiplierRange: {x: 1.01, y: 1.02}
+  _maxSpawnWaveMultiplierRange: {x: 1.05, y: 1.07}
+  _spawnDelayRange: {x: 0.5, y: 1.5}
+  _spawnBounds:
+    _type: 1
+    _bounds: {x: 27.9, y: 15.9}
+    _target: {fileID: 1537609277}
+--- !u!114 &1537609280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537609276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02beb27150bac9948a0fc9259dbb715b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _upgrade: {fileID: 927388222}
+  _spawnBounds:
+    _type: 1
+    _bounds: {x: 34.8, y: 19.3}
+    _target: {fileID: 1537609277}
+  _launcherAssets:
+  - {fileID: 11400000, guid: 7a9888aa6973a6a4aa9c3aedb6f7772a, type: 2}
+  - {fileID: 11400000, guid: e8500365dfe1ac24f946230cb2297dd3, type: 2}
+--- !u!114 &1537609281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537609276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1a06794e5f4f347b67f1e4b170d33d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeWarper: {fileID: 1537609278}
+  _characterSpawner: {fileID: 1537609279}
+  _upgradeSpawner: {fileID: 1537609280}
+  _warped: 0
+  _timeInterval: 10
 --- !u!1 &1539584154
 GameObject:
   m_ObjectHideFlags: 0
