@@ -16,6 +16,7 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
     [SerializeField] private UnityEvent _onHealthKilled;
     [SerializeField] private UnityEvent<bool> _onActiveChanged;
     [SerializeField] private UnityEvent<float> _onCooldownChanged;
+    [SerializeField] private UnityEvent _onAssetReset;
     [SerializeField] private UnityEvent<LauncherAsset> _onAssetChanged;
     [SerializeField] private UnityEvent<AudioClip> _onAudioPlayed;
 
@@ -85,6 +86,7 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
         SetCooldown(0.0f);
         _renderer.sprite = null;
         _onActiveChanged?.Invoke(_launcher);
+        _onAssetReset?.Invoke();
     }
 
     private void SetCooldown(float cooldown)

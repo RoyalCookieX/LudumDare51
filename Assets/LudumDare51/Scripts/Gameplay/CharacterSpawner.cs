@@ -8,7 +8,8 @@ public class CharacterSpawner : MonoBehaviour
     public int MaxWaveSize => _maxWaveSize;
 
     [Header("Events")]
-    [SerializeField] private UnityEvent<int, int> _onWaveSpawned;
+    [SerializeField] private UnityEvent<int> _onWaveChanged;
+    [SerializeField] private UnityEvent<int> _onWaveSizeChanged;
     [SerializeField] private UnityEvent<GameObject> _onCharacterSpawned;
 
     [Header("Prefab")]
@@ -33,7 +34,8 @@ public class CharacterSpawner : MonoBehaviour
             return;
         _current = StartCoroutine(WaveRoutine());
         _currentWave++;
-        _onWaveSpawned?.Invoke(_currentWave, WaveSize);
+        _onWaveChanged?.Invoke(_currentWave);
+        _onWaveSizeChanged?.Invoke(WaveSize);
     }
 
     [ContextMenu("Increment Wave")]
