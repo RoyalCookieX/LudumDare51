@@ -13,6 +13,7 @@ public class LauncherAsset : ScriptableObject
     public Sprite HeldSprite => _heldSprite;
     public Sprite ItemSprite => _itemSprite;
     public Sprite IconSprite => _iconSprite;
+    public AudioClip EquipClip => _equipClip;
 
     [Header("Prefab")]
     [SerializeField] private GameObject _projectilePrefab;
@@ -31,6 +32,7 @@ public class LauncherAsset : ScriptableObject
 
     [Header("Audio")]
     [SerializeField] private List<AudioClip> _launchClips;
+    [SerializeField] private AudioClip _equipClip;
 
     public AudioClip GetRandomLaunchClip() => _launchClips[Random.Range(0, _launchClips.Count)];
 

@@ -24,3 +24,4 @@ MonoBehaviour:
   _launchClips:
   - {fileID: 8300000, guid: 0b9ebaf4d6a08334aaa97ffb68352c9c, type: 3}
   - {fileID: 8300000, guid: 8d301ca7a8906f04e9205a981db3219f, type: 3}
+  _equipClip: {fileID: 8300000, guid: 4a9bb965f99ba5e4eb6f76e0b9c7e8b9, type: 3}

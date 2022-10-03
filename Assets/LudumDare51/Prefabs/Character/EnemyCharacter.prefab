@@ -272,6 +272,7 @@ MonoBehaviour:
   _target: {fileID: 325980459841088810}
   _renderer: {fileID: 3707242666112978266}
   _active: 1
+  _useDefaultOnAwake: 1
   _launcher: {fileID: 11400000, guid: 95e7269a633bd8f4aa3ade07b8260b8b, type: 2}
 --- !u!114 &2762964137298710611
 MonoBehaviour:
