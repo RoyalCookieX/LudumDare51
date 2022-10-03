@@ -21,3 +21,5 @@ MonoBehaviour:
   _heldSprite: {fileID: 21300000, guid: de332a68a691dbd4b998e307e6740eb7, type: 3}
   _itemSprite: {fileID: 21300000, guid: de332a68a691dbd4b998e307e6740eb7, type: 3}
   _iconSprite: {fileID: 21300000, guid: de332a68a691dbd4b998e307e6740eb7, type: 3}
+  _launchClips:
+  - {fileID: 8300000, guid: 3e1963a6c578abf4dbb2bcd743d578ba, type: 3}

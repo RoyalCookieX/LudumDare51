@@ -10,6 +10,7 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
 
     [Header("Events")]
     [SerializeField] private UnityEvent _onLaunched;
+    [SerializeField] private UnityEvent<AudioClip> _onAudioPlayed;
     [SerializeField] private UnityEvent<bool> _onActiveChanged;
     [SerializeField] private UnityEvent<float> _onCooldownChanged;
     [SerializeField] private UnityEvent<LauncherAsset> _onAssetChanged;
@@ -99,6 +100,7 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
             if (instance.TryGetComponent(out ITeamReference teamRef))
                 teamRef.SetTeam(_team);
 
+            _onAudioPlayed?.Invoke(_launcher.GetRandomLaunchClip());
             yield return new WaitForSeconds(_launcher.ShotDelay);
         }
     }
