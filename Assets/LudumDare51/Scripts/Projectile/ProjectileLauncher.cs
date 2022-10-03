@@ -80,12 +80,6 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
 
     private void SetCooldown(float cooldown)
     {
-        if (!_launcher)
-        {
-            _currentCooldown = 0.0f;
-            return;
-        }
-
         _currentCooldown = cooldown;
         _onCooldownChanged?.Invoke(Percentage);
     }
