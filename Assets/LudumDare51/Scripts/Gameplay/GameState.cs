@@ -34,6 +34,12 @@ public class GameState : MonoBehaviour
         _playerScore.SetPaused(_paused);
     }
 
+    public void EndGame()
+    {
+        _timeWarper.SetTimeFrame(TimeFrame.Paused);
+        _playerScore.EndScore();
+    }
+
     private void SetTimeRemaining(float timeRemaining)
     {
         _timeRemaining = timeRemaining;

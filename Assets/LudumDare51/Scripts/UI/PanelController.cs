@@ -28,6 +28,6 @@ public class PanelController : MonoBehaviour
 
     private void Start()
     {
-        _navigator.PushPanelIndex(_defaultPanelIndex);
+        _navigator.StartAtPanelIndex(_defaultPanelIndex);
     }
 }
