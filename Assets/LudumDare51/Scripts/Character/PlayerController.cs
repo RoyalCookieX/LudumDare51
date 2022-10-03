@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         if (!_inputEnabled)
             return;
 
-        _action = _actionEnabled ? context.performed : false;
+        _action = _actionEnabled ? (context.ReadValue<float>() > 0.0f) : false;
     }
 
     public void OnAim(InputAction.CallbackContext context)

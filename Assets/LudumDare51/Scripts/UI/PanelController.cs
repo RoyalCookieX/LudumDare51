@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PanelController : MonoBehaviour
@@ -10,7 +8,7 @@ public class PanelController : MonoBehaviour
 
     [Header("Properties")]
     [SerializeField] private int _defaultPanelIndex = 0;
-    [SerializeField] private int _defaultPanelIndexOnCancelled = 1;
+    [SerializeField] private int _defaultPanelIndexOnCanceled = 1;
 
     public void OnCancel(InputAction.CallbackContext context)
     {
@@ -20,7 +18,7 @@ public class PanelController : MonoBehaviour
 
         if(_navigator.ActivePanelCount == 1)
         {
-            _navigator.PushPanelIndex(_defaultPanelIndexOnCancelled);
+            _navigator.PushPanelIndex(_defaultPanelIndexOnCanceled);
         }
         else
         {
