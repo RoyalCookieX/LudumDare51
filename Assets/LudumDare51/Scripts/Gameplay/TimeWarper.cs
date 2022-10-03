@@ -39,6 +39,7 @@ public class TimeWarper : MonoBehaviour
         float t1 = _warpBlend[_warpBlend.length - 1].time;
         float duration = t1 - t0;
         _current = StartCoroutine(WarpRoutine(srcTimeScale, dstTimeScale, duration));
+        _onWarped?.Invoke(timeFrame);
     }
 
     public void SetTimeFrameImmediate(TimeFrame timeFrame)

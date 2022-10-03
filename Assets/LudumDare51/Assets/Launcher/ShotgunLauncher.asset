@@ -19,8 +19,8 @@ MonoBehaviour:
   _accuracy: 0.65
   _cooldown: 1
   _heldSprite: {fileID: 21300000, guid: de332a68a691dbd4b998e307e6740eb7, type: 3}
-  _itemSprite: {fileID: 21300000, guid: de332a68a691dbd4b998e307e6740eb7, type: 3}
-  _iconSprite: {fileID: 21300000, guid: de332a68a691dbd4b998e307e6740eb7, type: 3}
+  _itemSprite: {fileID: 21300000, guid: dcdbf4e8087adf74893cf4a98953026d, type: 3}
+  _iconSprite: {fileID: 21300000, guid: 2cb2da06c5b77884f89c2406d5e7f4c4, type: 3}
   _launchClips:
   - {fileID: 8300000, guid: 3e1963a6c578abf4dbb2bcd743d578ba, type: 3}
   _equipClip: {fileID: 8300000, guid: 4a9bb965f99ba5e4eb6f76e0b9c7e8b9, type: 3}
