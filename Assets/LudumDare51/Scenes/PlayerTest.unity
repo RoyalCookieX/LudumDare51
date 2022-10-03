@@ -677,6 +677,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1a06794e5f4f347b67f1e4b170d33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onTimeRemainingChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1668106229}
+        m_TargetAssemblyTypeName: GameplayDebug, Assembly-CSharp
+        m_MethodName: SetTimeRemaining
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _timeWarper: {fileID: 1537609278}
   _characterSpawner: {fileID: 1537609279}
   _upgradeSpawner: {fileID: 1537609280}
