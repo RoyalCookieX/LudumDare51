@@ -8,7 +8,7 @@ public class TriggerHurtbox : MonoBehaviour, ITeamReference
     public int Damage => _damage;
 
     [Header("Events")]
-    [SerializeField] private UnityEvent _onHit;
+    [SerializeField] private UnityEvent _onDamaged;
     [SerializeField] private UnityEvent<TeamAsset> _onAssetChanged;
 
     [Header("Properties")]
@@ -24,8 +24,7 @@ public class TriggerHurtbox : MonoBehaviour, ITeamReference
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.TryGetComponent(out Health health) || !health.Damage(_team.ID, _damage))
-            return;
-        _onHit?.Invoke();
+        if (other.TryGetComponent(out Health health) && health.Damage(_team.ID, _damage))
+            _onDamaged?.Invoke();
     }
 }

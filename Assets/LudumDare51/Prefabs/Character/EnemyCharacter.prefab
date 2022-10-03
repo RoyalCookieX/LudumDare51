@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 3772360543422809897}
   - component: {fileID: 6417462321547059008}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,6 +373,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _teamRefs:
+  - {fileID: 6654814672599455063}
   _invincible: 0
   _current: 10
   _max: 10

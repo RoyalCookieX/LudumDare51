@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool _actionEnabled = true;
 
     private bool _action = false;
+    private Vector2 _aimPosition = Vector2.zero;
     private Camera _mainCamera;
 
     public void EnableInput(bool enable)
@@ -36,31 +37,30 @@ public class PlayerController : MonoBehaviour
         _launcher.ResetLauncher();
     }
 
-    private void OnMovement(InputValue value)
+    public void OnMovement(InputAction.CallbackContext context)
     {
         if (!_inputEnabled)
             return;
 
-        Vector2 input = value.Get<Vector2>();
+        Vector2 input = context.ReadValue<Vector2>();
         _movement.SetMoveDirection(input);
     }
 
-    private void OnAction(InputValue value)
+    public void OnAction(InputAction.CallbackContext context)
     {
         if (!_inputEnabled)
             return;
 
-        _action = _actionEnabled ? value.isPressed : false;
+        _action = _actionEnabled && (context.ReadValue<float>() > 0.0f);
     }
 
-    private void OnAim(InputValue value)
+    public void OnAim(InputAction.CallbackContext context)
     {
-        if (!_inputEnabled)
+        if (!_mainCamera)
             return;
 
-        Vector2 cursorPosition = value.Get<Vector2>();
-        Vector3 worldPosition = _mainCamera.ScreenToWorldPoint(cursorPosition);
-        _rotator.SetFollowPosition(worldPosition);
+        Vector2 cursorPosition = context.ReadValue<Vector2>();
+        _aimPosition = _mainCamera.ScreenToWorldPoint(cursorPosition);
     }
 
     private void Awake()
@@ -78,5 +78,7 @@ public class PlayerController : MonoBehaviour
 
         if (_action)
             _launcher.Launch();
+
+        _rotator.SetFollowPosition(_aimPosition);
     }
 }
