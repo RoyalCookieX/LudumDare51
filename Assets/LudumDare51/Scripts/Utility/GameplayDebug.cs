@@ -4,6 +4,7 @@ public class GameplayDebug : MonoBehaviour
 {
     private int _wave;
     private int _waveSize;
+    private int _score;
     private float _health;
     private float _cooldown;
     private float _timeRemaining;
@@ -12,6 +13,11 @@ public class GameplayDebug : MonoBehaviour
     {
         _wave = wave;
         _waveSize = waveSize;
+    }
+
+    public void SetScore(int score)
+    {
+        _score = score;
     }
 
     public void SetTimeRemaining(float timeRemaining)
@@ -32,11 +38,12 @@ public class GameplayDebug : MonoBehaviour
 #if UNITY_EDITOR
     private void OnGUI()
     {
-        GUI.Label(new Rect(Vector2.up *  0.0f, new Vector2(200, 20)), $"Wave: {_wave}");
-        GUI.Label(new Rect(Vector2.up * 20.0f, new Vector2(200, 20)), $"Wave Size: {_waveSize}");
-        GUI.Label(new Rect(Vector2.up * 40.0f, new Vector2(200, 20)), $"Time Remaining: {_timeRemaining:00.##%}");
-        GUI.Label(new Rect(Vector2.up * 60.0f, new Vector2(200, 20)), $"Health: {_health:00.##%}");
-        GUI.Label(new Rect(Vector2.up * 80.0f, new Vector2(200, 20)), $"Cooldown: {_cooldown:00.##%}");
+        GUI.Label(new Rect(Vector2.up *   0.0f, new Vector2(200, 20)), $"Wave: {_wave}");
+        GUI.Label(new Rect(Vector2.up *  20.0f, new Vector2(200, 20)), $"Wave Size: {_waveSize}");
+        GUI.Label(new Rect(Vector2.up *  40.0f, new Vector2(200, 20)), $"Score: {_score}");
+        GUI.Label(new Rect(Vector2.up *  60.0f, new Vector2(200, 20)), $"Time Remaining: {_timeRemaining:00.##%}");
+        GUI.Label(new Rect(Vector2.up *  80.0f, new Vector2(200, 20)), $"Health: {_health:00.##%}");
+        GUI.Label(new Rect(Vector2.up * 100.0f, new Vector2(200, 20)), $"Cooldown: {_cooldown:00.##%}");
     }
 #endif
 }

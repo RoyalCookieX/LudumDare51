@@ -657,6 +657,7 @@ GameObject:
   - component: {fileID: 1537609279}
   - component: {fileID: 1537609280}
   - component: {fileID: 1537609282}
+  - component: {fileID: 1537609283}
   m_Layer: 0
   m_Name: GameState
   m_TagString: Untagged
@@ -822,6 +823,7 @@ MonoBehaviour:
   _timeWarper: {fileID: 1537609278}
   _characterSpawner: {fileID: 1537609279}
   _upgradeSpawner: {fileID: 1537609280}
+  _playerScore: {fileID: 1537609283}
   _playerController: {fileID: 651647134}
   _warped: 0
   _paused: 0
@@ -839,6 +841,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 651647128}
+--- !u!114 &1537609283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537609276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f03ee8f053e46b642bdbdc4481bb79ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onScoreChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1668106229}
+        m_TargetAssemblyTypeName: GameplayDebug, Assembly-CSharp
+        m_MethodName: SetScore
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onScoreEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  _passiveDelay: 0.02
+  _paused: 0
 --- !u!1 &1550052106
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,6 +1316,34 @@ PrefabInstance:
     - target: {fileID: 1790563475114770038, guid: c901c8c25f5f5f841898889c5ffd03aa, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608352977229265229, guid: c901c8c25f5f5f841898889c5ffd03aa, type: 3}
+      propertyPath: _onKilled.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608352977229265229, guid: c901c8c25f5f5f841898889c5ffd03aa, type: 3}
+      propertyPath: _onKilled.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608352977229265229, guid: c901c8c25f5f5f841898889c5ffd03aa, type: 3}
+      propertyPath: _onKilled.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1537609283}
+    - target: {fileID: 2608352977229265229, guid: c901c8c25f5f5f841898889c5ffd03aa, type: 3}
+      propertyPath: _onKilled.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608352977229265229, guid: c901c8c25f5f5f841898889c5ffd03aa, type: 3}
+      propertyPath: _onKilled.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: EndScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608352977229265229, guid: c901c8c25f5f5f841898889c5ffd03aa, type: 3}
+      propertyPath: _onKilled.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: PlayerScore, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608352977229265229, guid: c901c8c25f5f5f841898889c5ffd03aa, type: 3}
+      propertyPath: _onKilled.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3063888001160493657, guid: c901c8c25f5f5f841898889c5ffd03aa, type: 3}
       propertyPath: m_Name

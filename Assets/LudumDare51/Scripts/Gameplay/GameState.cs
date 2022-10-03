@@ -14,6 +14,7 @@ public class GameState : MonoBehaviour
     [SerializeField] private TimeWarper _timeWarper;
     [SerializeField] private CharacterSpawner _characterSpawner;
     [SerializeField] private UpgradeSpawner _upgradeSpawner;
+    [SerializeField] private PlayerScore _playerScore;
     [SerializeField] private PlayerController _playerController;
 
     [Header("Properties")]
@@ -22,6 +23,7 @@ public class GameState : MonoBehaviour
     [SerializeField, Min(0.01f)] private float _timeInterval = 10.0f;
 
     private float _timeRemaining = 0.0f;
+
     public void SetPaused(bool paused)
     {
         if (paused == _paused)
@@ -29,6 +31,7 @@ public class GameState : MonoBehaviour
 
         _paused = paused;
         _timeWarper.SetTimeFrameImmediate(_paused ? TimeFrame.Paused : CurTimeFrame);
+        _playerScore.SetPaused(_paused);
     }
 
     private void SetTimeRemaining(float timeRemaining)
