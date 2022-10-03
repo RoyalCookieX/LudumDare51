@@ -1,9 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameState : MonoBehaviour
 {
+    public float Percentage => _timeRemaining / _timeInterval;
     private TimeFrame CurTimeFrame => _warped ? TimeFrame.Warped : TimeFrame.Normal;
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent<float> _onTimeRemainingChanged;
 
     [Header("Components")]
     [SerializeField] private TimeWarper _timeWarper;
@@ -14,8 +19,9 @@ public class GameState : MonoBehaviour
     [Header("Properties")]
     [SerializeField] private bool _warped = false;
     [SerializeField] private bool _paused = false;
-    [SerializeField] private float _timeInterval = 10.0f;
+    [SerializeField, Min(0.01f)] private float _timeInterval = 10.0f;
 
+    private float _timeRemaining = 0.0f;
     public void SetPaused(bool paused)
     {
         if (paused == _paused)
@@ -25,12 +31,18 @@ public class GameState : MonoBehaviour
         _timeWarper.SetTimeFrameImmediate(_paused ? TimeFrame.Paused : CurTimeFrame);
     }
 
+    private void SetTimeRemaining(float timeRemaining)
+    {
+        _timeRemaining = timeRemaining;
+        _onTimeRemainingChanged?.Invoke(Percentage);
+    }
+
     private IEnumerator Start()
     {
-        float current = 0.0f;
-        while(true)
+        SetTimeRemaining(0.0f);
+        while (true)
         {
-            current = _timeInterval;
+            SetTimeRemaining(_timeInterval);
             
             switch (_warped)
             {
@@ -50,11 +62,11 @@ public class GameState : MonoBehaviour
 
             _timeWarper.SetTimeFrame(CurTimeFrame);
 
-            while(current > 0.0f)
+            while(_timeRemaining > 0.0f)
             {
                 yield return new WaitUntil(() => !_paused);
                 yield return null;
-                current -= Time.unscaledDeltaTime;
+                SetTimeRemaining(_timeRemaining - Time.unscaledDeltaTime);
             }
             
             _warped = !_warped;
