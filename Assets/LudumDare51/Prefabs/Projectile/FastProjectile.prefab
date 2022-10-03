@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b797e72a75a84224ab22e4ae23253fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onDamaged:
+  _onHealthDamaged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4715905929266727603}
@@ -137,6 +137,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onHealthKilled:
+    m_PersistentCalls:
+      m_Calls: []
   _onAssetChanged:
     m_PersistentCalls:
       m_Calls:

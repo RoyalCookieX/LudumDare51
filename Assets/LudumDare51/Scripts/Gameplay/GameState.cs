@@ -20,6 +20,7 @@ public class GameState : MonoBehaviour
     [Header("Properties")]
     [SerializeField] private bool _warped = false;
     [SerializeField] private bool _paused = false;
+    [SerializeField] private bool _ended = false;
     [SerializeField, Min(0.01f)] private float _timeInterval = 10.0f;
 
     private float _timeRemaining = 0.0f;
@@ -36,6 +37,7 @@ public class GameState : MonoBehaviour
 
     public void EndGame()
     {
+        _ended = true;
         _timeWarper.SetTimeFrame(TimeFrame.Paused);
         _playerScore.EndScore();
     }
@@ -49,10 +51,8 @@ public class GameState : MonoBehaviour
     private IEnumerator Start()
     {
         SetTimeRemaining(0.0f);
-        while (true)
+        while (!_ended)
         {
-            SetTimeRemaining(_timeInterval);
-            
             switch (_warped)
             {
                 case false:
@@ -68,16 +68,15 @@ public class GameState : MonoBehaviour
                     _playerController.EnableAction(true);
                 } break;
             }
-
             _timeWarper.SetTimeFrame(CurTimeFrame);
 
-            while(_timeRemaining > 0.0f)
+            SetTimeRemaining(_timeInterval);
+            while (_timeRemaining > 0.0f)
             {
                 yield return new WaitUntil(() => !_paused);
                 yield return null;
                 SetTimeRemaining(_timeRemaining - Time.unscaledDeltaTime);
             }
-            
             _warped = !_warped;
         }
     }

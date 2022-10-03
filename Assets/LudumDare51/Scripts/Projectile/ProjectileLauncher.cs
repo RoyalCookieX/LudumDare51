@@ -4,16 +4,21 @@ using UnityEngine.Events;
 
 public class ProjectileLauncher : MonoBehaviour, ITeamReference
 {
+    public UnityEvent OnHealthDamaged { get => _onHealthDamaged; set => _onHealthDamaged = value; }
+    public UnityEvent OnHealthKilled { get => _onHealthKilled; set => _onHealthKilled = value; }
     public TeamAsset Team => _team;
     public bool Active => _active;
     private float Percentage => _launcher ? (_currentCooldown / _launcher.Cooldown) : 0.0f;
 
     [Header("Events")]
     [SerializeField] private UnityEvent _onLaunched;
-    [SerializeField] private UnityEvent<AudioClip> _onAudioPlayed;
+    [SerializeField] private UnityEvent _onHealthDamaged;
+    [SerializeField] private UnityEvent _onHealthKilled;
     [SerializeField] private UnityEvent<bool> _onActiveChanged;
     [SerializeField] private UnityEvent<float> _onCooldownChanged;
     [SerializeField] private UnityEvent<LauncherAsset> _onAssetChanged;
+    [SerializeField] private UnityEvent<AudioClip> _onAudioPlayed;
+
 
     [Header("Components")]
     [SerializeField] private Transform _target;
@@ -101,7 +106,11 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
             GameObject instance = _pool.Instantiate(_target.position, newRotation);
 
             if (instance.TryGetComponent(out ITeamReference teamRef))
+            {
                 teamRef.SetTeam(_team);
+                teamRef.OnHealthDamaged.AddListener(_onHealthDamaged.Invoke);
+                teamRef.OnHealthKilled.AddListener(_onHealthKilled.Invoke);
+            }
 
             _onAudioPlayed?.Invoke(_launcher.GetRandomLaunchClip());
             yield return new WaitForSeconds(_launcher.ShotDelay);

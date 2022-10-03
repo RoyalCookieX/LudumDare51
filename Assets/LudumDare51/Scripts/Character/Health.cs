@@ -45,15 +45,22 @@ public class Health : MonoBehaviour
         _onKilled?.Invoke();
     }
 
-    public bool Damage(int id, int damage)
+    public bool Damage(int id, int damage) => Damage(id, damage, out _);
+    public bool Damage(int id, int damage, out bool killed)
     {
+        killed = false;
         if (id == _teamAsset.ID || damage <= 0 || _invincible)
+        {
             return false;
+        }
 
         _current -= damage;
         _onHealthChanged?.Invoke(Percentage);
         if (_current <= 0)
+        {
             Kill();
+            killed = true;
+        }
         return true;
     }
 

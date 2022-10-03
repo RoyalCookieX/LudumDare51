@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public interface ITeamReference
 {
+    public UnityEvent OnHealthDamaged { get; set; }
+    public UnityEvent OnHealthKilled { get; set; }
     public TeamAsset Team { get; }
-
     public void SetTeam(TeamAsset team);
 }
 
