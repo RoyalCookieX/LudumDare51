@@ -16,7 +16,7 @@ MonoBehaviour:
   _poolSize: 10
   _shotMultiplier: 1
   _shotDelay: 0
-  _accuracy: 0.9
+  _accuracy: 0.96
   _cooldown: 2
   _heldSprite: {fileID: 21300000, guid: f4333af5e65f4834393024234558110a, type: 3}
   _itemSprite: {fileID: 21300000, guid: 5fa53fffcdb85284eb204fc14b9f9fe3, type: 3}

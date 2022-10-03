@@ -30,15 +30,15 @@ public class SpawnBounds
         return TargetPosition + offset;
     }
 
-#if UNITY_EDITOR
     public void DrawGizmos(Color color)
     {
+#if UNITY_EDITOR
         Gizmos.color = color;
         switch (_type)
         {
             case BoundsType.Circle: Gizmos.DrawWireSphere(TargetPosition, _bounds.x / 2.0f); break;
             case BoundsType.Box: Gizmos.DrawWireCube(TargetPosition, _bounds); break;
         }
-    }
 #endif
+    }
 }
