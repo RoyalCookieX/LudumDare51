@@ -36,30 +36,30 @@ public class PlayerController : MonoBehaviour
         _launcher.ResetLauncher();
     }
 
-    private void OnMovement(InputValue value)
+    public void OnMovement(InputAction.CallbackContext context)
     {
         if (!_inputEnabled)
             return;
 
-        Vector2 input = value.Get<Vector2>();
+        Vector2 input = context.ReadValue<Vector2>();
         _movement.SetMoveDirection(input);
     }
 
-    private void OnAction(InputValue value)
+    public void OnAction(InputAction.CallbackContext context)
     {
         if (!_inputEnabled)
             return;
 
-        _action = _actionEnabled ? value.isPressed : false;
+        _action = _actionEnabled ? context.performed : false;
     }
 
-    private void OnAim(InputValue value)
+    public void OnAim(InputAction.CallbackContext context)
     {
-        if (!_inputEnabled)
+        if (!_inputEnabled || !_mainCamera)
             return;
 
-        Vector2 cursorPosition = value.Get<Vector2>();
-        Vector3 worldPosition = _mainCamera.ScreenToWorldPoint(cursorPosition);
+        Vector2 cursorPosition = context.ReadValue<Vector2>();
+        Vector2 worldPosition = _mainCamera.ScreenToWorldPoint(cursorPosition);
         _rotator.SetFollowPosition(worldPosition);
     }
 
