@@ -5,15 +5,19 @@ public class PanelNavigator : MonoBehaviour
 {
     public int ActivePanelCount => _panelIndices != null ? _panelIndices.Count : 0;
     public int ActivePanelIndex => _panelIndices != null ? _panelIndices.Peek() : 0;
+    public bool NavigationEnabled { get => _navigationEnabled; set => _navigationEnabled = value; }
 
     [Header("Components")]
     [SerializeField] private List<GameObject> _panels;
+
+    [Header("Properties")]
+    [SerializeField] private bool _navigationEnabled = true;
 
     private Stack<int> _panelIndices = new Stack<int>();
 
     public void PushPanelIndex(int index)
     {
-        if (!IsValidPanel(index))
+        if (!_navigationEnabled || !IsValidPanel(index))
             return;
 
         _panelIndices.Push(index);
@@ -24,12 +28,24 @@ public class PanelNavigator : MonoBehaviour
 
     public void PopPanelIndex()
     {
-        if (_panelIndices.Count <= 1)
+        if (!_navigationEnabled || _panelIndices.Count <= 1)
             return;
 
         _panelIndices.Pop();
         int index = _panelIndices.Peek();
 
+        HideAllPanels();
+        _panels[index].SetActive(true);
+    }
+
+    public void StartAtPanelIndex(int index)
+    {
+        if (!_navigationEnabled || !IsValidPanel(index))
+            return;
+
+        _panelIndices.Clear();
+        _panelIndices.Push(index);
+        
         HideAllPanels();
         _panels[index].SetActive(true);
     }
