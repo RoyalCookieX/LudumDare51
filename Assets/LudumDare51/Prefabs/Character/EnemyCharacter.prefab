@@ -206,6 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1823986974486390379}
   - component: {fileID: 6066909515018209102}
+  - component: {fileID: 2762964137298710611}
   m_Layer: 0
   m_Name: Arm
   m_TagString: Untagged
@@ -244,6 +245,21 @@ MonoBehaviour:
   _onLaunched:
     m_PersistentCalls:
       m_Calls: []
+  _onAudioPlayed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2762964137298710611}
+        m_TargetAssemblyTypeName: AudioSpawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onActiveChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -256,7 +272,24 @@ MonoBehaviour:
   _target: {fileID: 325980459841088810}
   _renderer: {fileID: 3707242666112978266}
   _active: 1
+  _useDefaultOnAwake: 1
   _launcher: {fileID: 11400000, guid: 95e7269a633bd8f4aa3ade07b8260b8b, type: 2}
+--- !u!114 &2762964137298710611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654814672599455063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78eda10f46b06747b1118baa5cd36f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioPrefab: {fileID: 8567820730012378519, guid: 319164ad03f642f47b4e5d61677ec308, type: 3}
+  _target: {fileID: 8259786149605837482}
+  _poolSize: 10
+  _mixerGroup: {fileID: 4841504299602736362, guid: 87c972517b7e6274a8fe6dab7fdb4324, type: 2}
 --- !u!1 &8259786149605837485
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,6 +303,7 @@ GameObject:
   - component: {fileID: 618636881402442650}
   - component: {fileID: 3772360543422809897}
   - component: {fileID: 6417462321547059008}
+  - component: {fileID: 7905426930729890465}
   m_Layer: 0
   m_Name: EnemyCharacter
   m_TagString: Untagged
@@ -373,9 +407,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7905426930729890465}
+        m_TargetAssemblyTypeName: AudioSpawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 6b8962ec03cffe649a08a4e75fd8e44e, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Death
+          m_BoolArgument: 0
+        m_CallState: 2
   _teamRefs:
   - {fileID: 6654814672599455063}
   _invincible: 0
   _current: 10
   _max: 10
   _teamAsset: {fileID: 11400000, guid: 06e68fd853b6dc94cbe4c5f43630acec, type: 2}
+--- !u!114 &7905426930729890465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8259786149605837485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78eda10f46b06747b1118baa5cd36f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioPrefab: {fileID: 8567820730012378519, guid: 319164ad03f642f47b4e5d61677ec308, type: 3}
+  _target: {fileID: 8259786149605837482}
+  _poolSize: 2
+  _mixerGroup: {fileID: 6589273432941322167, guid: 87c972517b7e6274a8fe6dab7fdb4324, type: 2}

@@ -10,6 +10,7 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
 
     [Header("Events")]
     [SerializeField] private UnityEvent _onLaunched;
+    [SerializeField] private UnityEvent<AudioClip> _onAudioPlayed;
     [SerializeField] private UnityEvent<bool> _onActiveChanged;
     [SerializeField] private UnityEvent<float> _onCooldownChanged;
     [SerializeField] private UnityEvent<LauncherAsset> _onAssetChanged;
@@ -22,6 +23,7 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
     [SerializeField] private bool _active = true;
     [SerializeField] private LauncherAsset _launcher;
 
+    private bool _playEquip = false;
     private float _currentCooldown = 0.0f;
     private ObjectPool _pool;
     private TeamAsset _team;
@@ -64,6 +66,8 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
         SetCooldown(0.0f);
         _renderer.sprite = _launcher.HeldSprite;
         _onAssetChanged?.Invoke(_launcher);
+        if(_playEquip)
+            _onAudioPlayed?.Invoke(_launcher.EquipClip);
     }
 
     public void ResetLauncher()
@@ -99,6 +103,7 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
             if (instance.TryGetComponent(out ITeamReference teamRef))
                 teamRef.SetTeam(_team);
 
+            _onAudioPlayed?.Invoke(_launcher.GetRandomLaunchClip());
             yield return new WaitForSeconds(_launcher.ShotDelay);
         }
     }
@@ -117,5 +122,6 @@ public class ProjectileLauncher : MonoBehaviour, ITeamReference
     {
         _defaultLauncher = _launcher;
         SetLauncher(_defaultLauncher);
+        _playEquip = true;
     }
 }

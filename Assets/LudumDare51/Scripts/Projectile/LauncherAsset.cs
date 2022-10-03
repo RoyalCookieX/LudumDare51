@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "LudumDare51/Assets/Launcher")]
@@ -12,6 +13,7 @@ public class LauncherAsset : ScriptableObject
     public Sprite HeldSprite => _heldSprite;
     public Sprite ItemSprite => _itemSprite;
     public Sprite IconSprite => _iconSprite;
+    public AudioClip EquipClip => _equipClip;
 
     [Header("Prefab")]
     [SerializeField] private GameObject _projectilePrefab;
@@ -27,6 +29,12 @@ public class LauncherAsset : ScriptableObject
     [SerializeField] private Sprite _heldSprite;
     [SerializeField] private Sprite _itemSprite;
     [SerializeField] private Sprite _iconSprite;
+
+    [Header("Audio")]
+    [SerializeField] private List<AudioClip> _launchClips;
+    [SerializeField] private AudioClip _equipClip;
+
+    public AudioClip GetRandomLaunchClip() => _launchClips[Random.Range(0, _launchClips.Count)];
 
     private void OnValidate()
     {
