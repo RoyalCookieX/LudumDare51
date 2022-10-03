@@ -960,6 +960,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4608284540772004969}
+  - {fileID: 8794158385544198807}
   m_Father: {fileID: 9128347955539995110}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2195,6 +2196,54 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: 1
   m_LayoutPriority: 1
+--- !u!1 &8647554728609923143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8794158385544198807}
+  - component: {fileID: 2793315745741548600}
+  m_Layer: 0
+  m_Name: Debug
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8794158385544198807
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647554728609923143}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1433689015318102171}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2793315745741548600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647554728609923143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f4b69ca103bdc84e9c5ff461f5aef45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8908291123718725768
 GameObject:
   m_ObjectHideFlags: 0
@@ -2492,9 +2541,65 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 506685979992200455}
     m_Modifications:
+    - target: {fileID: 5085278938325276362, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
+      propertyPath: _onHealthChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085278938325276362, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
+      propertyPath: _onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085278938325276362, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
+      propertyPath: _onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2793315745741548600}
+    - target: {fileID: 5085278938325276362, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
+      propertyPath: _onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085278938325276362, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
+      propertyPath: _onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085278938325276362, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
+      propertyPath: _onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameplayDebug, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085278938325276362, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
+      propertyPath: _onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5729639126689785195, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586995313514810487, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
+      propertyPath: _onCooldownChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586995313514810487, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
+      propertyPath: _onCooldownChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586995313514810487, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
+      propertyPath: _onCooldownChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2793315745741548600}
+    - target: {fileID: 6586995313514810487, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
+      propertyPath: _onCooldownChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586995313514810487, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
+      propertyPath: _onCooldownChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetCooldown
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586995313514810487, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
+      propertyPath: _onCooldownChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameplayDebug, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586995313514810487, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
+      propertyPath: _onCooldownChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6963427319072030223, guid: 291d6f6d8e336f74db9bfaa468d9bcfe, type: 3}
       propertyPath: m_RootOrder
