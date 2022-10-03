@@ -108,8 +108,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5997639304392261574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8259786149605837482}
   m_RootOrder: 0
@@ -155,7 +155,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7df4ef259e14dab43a987cb53b3eff52, type: 3}
   m_Color: {r: 1, g: 0.18396229, b: 0.18396229, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -222,7 +222,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6654814672599455063}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.39, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 325980459841088810}
@@ -245,6 +245,21 @@ MonoBehaviour:
   _onLaunched:
     m_PersistentCalls:
       m_Calls: []
+  _onHealthDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  _onHealthKilled:
+    m_PersistentCalls:
+      m_Calls: []
+  _onActiveChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _onCooldownChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _onAssetChanged:
+    m_PersistentCalls:
+      m_Calls: []
   _onAudioPlayed:
     m_PersistentCalls:
       m_Calls:
@@ -260,19 +275,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onActiveChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onCooldownChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onAssetChanged:
-    m_PersistentCalls:
-      m_Calls: []
   _target: {fileID: 325980459841088810}
   _renderer: {fileID: 3707242666112978266}
   _active: 1
-  _useDefaultOnAwake: 1
   _launcher: {fileID: 11400000, guid: 95e7269a633bd8f4aa3ade07b8260b8b, type: 2}
 --- !u!114 &2762964137298710611
 MonoBehaviour:
@@ -299,7 +304,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8259786149605837482}
-  - component: {fileID: 1313000493061497715}
+  - component: {fileID: 908384162367556650}
   - component: {fileID: 618636881402442650}
   - component: {fileID: 3772360543422809897}
   - component: {fileID: 6417462321547059008}
@@ -327,8 +332,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &1313000493061497715
-CapsuleCollider2D:
+--- !u!58 &908384162367556650
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -340,9 +345,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!114 &618636881402442650
 MonoBehaviour:
   m_ObjectHideFlags: 0
